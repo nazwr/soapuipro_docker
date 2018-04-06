@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="2d1cf692-fcbb-466e-97ee-ec326245d545" created="2.3.0" activeEnvironment="Default environment" name="basic_project" resourceRoot="" updated="2.3.0 2018-03-06T16:28:42Z" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings/>
+  <con:interface xsi:type="con:RestService" id="a97ebe4d-9059-4c45-8421-2f1b1d3e351c" wadlVersion="http://wadl.dev.java.net/2009/02" name="http://dl.eviware.com" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <con:settings/>
+    <con:definitionCache type="TEXT" rootPart=""/>
+    <con:endpoints>
+      <con:endpoint>http://dl.eviware.com</con:endpoint>
+    </con:endpoints>
+    <con:resource name="Readyapi.htm" path="/ready-api/readyapi.htm" id="7940bc31-d9dc-4b78-a164-5efc9459aff2">
+      <con:settings/>
+      <con:parameters/>
+      <con:method name="Readyapi.htm" id="ef73d5a6-b03d-446c-a036-c6c692e15f67" method="GET">
+        <con:settings/>
+        <con:parameters/>
+        <con:representation type="RESPONSE">
+          <con:mediaType>text/html</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:element>html</con:element>
+        </con:representation>
+        <con:request name="Request 1" id="3760bbb4-89a3-431c-ae13-a002dc1d44c4" mediaType="application/json">
+          <con:settings>
+            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+          </con:settings>
+          <con:endpoint>http://dl.eviware.com</con:endpoint>
+          <con:request/>
+          <con:originalUri>http://dl.eviware.com/ready-api/readyapi.htm</con:originalUri>
+          <con:credentials>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:parameters/>
+        </con:request>
+      </con:method>
+    </con:resource>
+  </con:interface>
+  <con:testSuite id="4ccbd3a7-4400-4147-bb48-76351e41fe61" name="basic_testsuite">
+    <con:settings/>
+    <con:runType>SEQUENTIAL</con:runType>
+    <con:testCase id="7ffc2ec6-5803-45f8-9650-2f4c4eeb0252" discardOkResults="true" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="single_request" searchProperties="true" timeout="0">
+      <con:settings/>
+      <con:savedRecentRuns>1</con:savedRecentRuns>
+      <con:testStep type="restrequest" name="Get 200" id="fe31bf49-43f1-4efe-8993-f4fa6c1464e5">
+        <con:settings/>
+        <con:config service="http://dl.eviware.com" resourcePath="/ready-api/readyapi.htm" methodName="Readyapi.htm" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Get 200" id="3760bbb4-89a3-431c-ae13-a002dc1d44c4" mediaType="application/json">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>http://dl.eviware.com</con:endpoint>
+            <con:request/>
+            <con:originalUri>http://dl.eviware.com/ready-api/readyapi.htm</con:originalUri>
+            <con:assertion type="Valid HTTP Status Codes" id="be8c79ef-9dbd-41dc-8ff5-7f83f2d29ac4" name="Valid HTTP Status Codes">
+              <con:settings/>
+              <con:configuration>
+                <codes>200</codes>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters/>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+      <con:reportParameters/>
+    </con:testCase>
+    <con:properties/>
+    <con:reportParameters/>
+  </con:testSuite>
+  <con:properties/>
+  <con:wssContainer/>
+  <con:databaseConnectionContainer/>
+  <con:jmsConnectionContainer/>
+  <con:oAuth2ProfileContainer/>
+  <con:oAuth1ProfileContainer/>
+  <con:reporting>
+    <con:xmlTemplates/>
+    <con:parameters/>
+  </con:reporting>
+  <con:authRepository/>
+  <con:tags/>
+</con:soapui-project>
