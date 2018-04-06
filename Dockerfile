@@ -23,7 +23,7 @@ RUN tar -xzf ./readyapi/ReadyAPI-2.3.0-linux-bin.tar.gz --directory ./readyapi/
 RUN rm ./readyapi/ReadyAPI-2.3.0-linux-bin.tar.gz
 
 # Acquire license
-RUN echo "1" | java -jar ./readyapi/licensing/ready-api-license-manager-1.1.jar -s 10.0.30.175:1099
+RUN echo "1" | java -jar ./readyapi/licensing/ready-api-license-manager-1.1.jar -s SB-MA-PC0FEYGG:1099
 
 # Test run from container
 RUN ls ./readyapi
