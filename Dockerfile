@@ -7,7 +7,9 @@ RUN apt-get update
 RUN ((echo "Y")) | apt-get install default-jre
 RUN ((echo "Y")) | apt-get install openjfx
 EXPOSE 80
+EXPOSE 8080
 EXPOSE 1099
+EXPOSE 10991
 
 # Stand up internal file server OR pull from repository? Pass in test file for starters w/docker repo
 
@@ -28,4 +30,4 @@ RUN rm ./readyapi/ReadyAPI-2.3.0-linux-bin.tar.gz
 RUN ((echo "1")) | java -jar ./readyapi/licensing/ready-api-license-manager-1.2.2.jar -s SB-MA-PC0FEYGG:1099
 
 # Test run from container
-RUN ./readyapi/ReadyAPI-2.3.0/bin/testrunner.sh "-RProject Report" "-EDefault environment" .\readyapi\startup_test\basic-project-readyapi-project.xml
+RUN ./readyapi/ReadyAPI-2.3.0/bin/testrunner.sh "-RProject Report" "-EDefault environment" ./readyapi/startup_test/basic-project-readyapi-project.xml
