@@ -2,10 +2,10 @@
 FROM ubuntu:16.04
 MAINTAINER Nathan Wright <nathan.wright@smartbear.com>
 
-# Update OS and add python package
-RUN apt-get update \
-    && apt-get install -y nodejs \
-    && apt-get install -y npm
+# Update OS and add node package
+RUN apt-get update 
+RUN apt-get install -y nodejs 
+RUN apt-get install -y npm
 
 # Create unpack directory
 RUN mkdir ./readyapi
