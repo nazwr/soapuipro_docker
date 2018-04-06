@@ -12,8 +12,8 @@ RUN ((echo "Y")) | apt-get install openjfx
 # ///// HANDLE READY API /////
 # Create unpack directory, move test script into test folder, license acquirement JAR into licensing
 RUN mkdir ./readyapi
-COPY ./licensing/ready-api-license-manager-1.2.2.jar /readyapi/licensing
-COPY ./startup_test/basic-project-readyapi-project.xml /readyapi/startup_test
+COPY ./licensing/ready-api-license-manager-1.2.2.jar ./readyapi/licensing/
+COPY ./startup_test/basic-project-readyapi-project.xml ./readyapi/startup_test/
 
 # Download 2.3.0 tarball from Smartbear + unpack
 ADD http://dl.eviware.com/ready-api/2.3.0/ReadyAPI-2.3.0-linux-bin.tar.gz ./readyapi/
