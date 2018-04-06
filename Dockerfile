@@ -10,17 +10,21 @@ RUN ((echo "Y")) | apt-get install openjfx
 # Stand up internal file server OR pull from repository? Pass in test file for starters w/docker repo
 
 # ///// HANDLE READY API /////
-# Create unpack directory
+# Create unpack directory, move test script into test folder, license acquirement JAR into licensing
 RUN mkdir ./readyapi
+COPY ./licensing/ready-api-license-manager-1.1.jar ./readyapi/licensing
+COPY ./startup_test/basic-project-readyapi-project.xml ./readyapi/startup_test
 
 # Download 2.3.0 tarball from Smartbear + unpack
 ADD http://dl.eviware.com/ready-api/2.3.0/ReadyAPI-2.3.0-linux-bin.tar.gz ./readyapi/
-COPY basic-project-readyapi-project.xml ./readyapi/testProject
 RUN tar -xzf ./readyapi/ReadyAPI-2.3.0-linux-bin.tar.gz --directory ./readyapi/
 
 # Clean up
 RUN rm ./readyapi/ReadyAPI-2.3.0-linux-bin.tar.gz
 
-# Test container
+# Acquire license
+RUN echo "1" | java -jar ./readyapi/licensing/ready-api-license-manager-1.1.jar -s 10.0.30.175:1099
+
+# Test run from container
 RUN ls ./readyapi
-RUN ./readyapi/ReadyAPI-2.3.0/bin/testrunner.sh "-RProject Report" "-EDefault environment" .\readyapi\testProject\basic-project-readyapi-project.xml
+RUN ./readyapi/ReadyAPI-2.3.0/bin/testrunner.sh "-RProject Report" "-EDefault environment" .\readyapi\startup_test\basic-project-readyapi-project.xml
