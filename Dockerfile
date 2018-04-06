@@ -4,7 +4,7 @@ MAINTAINER Nathan Wright <nathan.wright@smartbear.com>
 
 # Update OS and add python package
 RUN apt-get update
-RUN apt-get install ruby ruby-dev
+RUN apt-get install -qqy ruby ruby-dev
 RUN gem install bundler
 
 # Stand up internal file server
