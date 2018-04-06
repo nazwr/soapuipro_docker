@@ -4,7 +4,7 @@ MAINTAINER Nathan Wright <nathan.wright@smartbear.com>
 
 # Update OS and add java package
 RUN apt-get update
-RUN ((echo "Y") |apt-get install default-jre
+RUN ((echo "Y") | apt-get install default-jre
 
 # Stand up internal file server OR pull from repository? Pass in test file for starters w/docker repo
 
