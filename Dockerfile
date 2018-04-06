@@ -6,6 +6,8 @@ MAINTAINER Nathan Wright <nathan.wright@smartbear.com>
 RUN apt-get update
 RUN ((echo "Y")) | apt-get install default-jre
 RUN ((echo "Y")) | apt-get install openjfx
+EXPOSE 80
+EXPOSE 1099
 
 # Stand up internal file server OR pull from repository? Pass in test file for starters w/docker repo
 
