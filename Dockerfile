@@ -27,5 +27,5 @@ RUN rm ./readyapi/ReadyAPI-2.3.0-linux-bin.tar.gz
 
 # Test run from container
 RUN ls ./readyapi
-RUN ls ./readyapi/licensing
+RUN ls ./readyapi/startup_test
 # RUN ./readyapi/ReadyAPI-2.3.0/bin/testrunner.sh "-RProject Report" "-EDefault environment" .\readyapi\startup_test\basic-project-readyapi-project.xml
