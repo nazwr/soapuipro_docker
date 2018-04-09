@@ -31,3 +31,4 @@ RUN ((echo "1")) | java -jar ./readyapi/licensing/ready-api-license-manager-1.2.
 RUN chmod +x ./readyapi/ReadyAPI-2.3.0/bin/testrunner.sh
 # Test run from container
 RUN sh ./readyapi/ReadyAPI-2.3.0/bin/testrunner.sh "-EDefault environment" ./readyapi/startup_test/basic-project-readyapi-project.xml
+RUN /bin/bash
