@@ -5,7 +5,7 @@ MAINTAINER Nathan Wright <nathan.wright@smartbear.com>
 
 # Build variable store
 WORKDIR ./readyapi/ReadyAPI-2.3.0/bin
-ENTRYPOINT testrunner.sh ${project_path}
+ENTRYPOINT ./readyapi/ReadyAPI-2.3.0/bin/testrunner.sh ${project_path}
 ARG ls_address=127.0.0.1
 ARG project_path=""
 ENV ls_address=$ls_address
