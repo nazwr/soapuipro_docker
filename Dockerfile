@@ -4,10 +4,12 @@ FROM ubuntu:16.04
 MAINTAINER Nathan Wright <nathan.wright@smartbear.com>
 
 # Build variable store
-ENTRYPOINT ./readyapi/ReadyAPI-2.3.0/bin/testrunner.sh
+WORKDIR ./readyapi/ReadyAPI-2.3.0/bin
+ENTRYPOINT testrunner.sh ${project_path}
 ARG ls_address=127.0.0.1
+ARG project_path=""
 ENV ls_address=$ls_address
-
+ENV project_path=$project_path
 # Update and add java package
 RUN apt-get update
 RUN ((echo "Y")) | apt-get install default-jre
