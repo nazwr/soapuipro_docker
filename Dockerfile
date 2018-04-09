@@ -34,5 +34,5 @@ RUN chmod +x ./readyapi/ReadyAPI-2.3.0/bin/testrunner.sh
 # RUN sh ./readyapi/ReadyAPI-2.3.0/bin/testrunner.sh "-EDefault environment" ./readyapi/startup_test/basic-project-readyapi-project.xml
 
 # ///// HANDLE TEST EXECUTION /////
-ENTRYPOINT ['sh ./readyapi/ReadyAPI-2.3.0/bin/testrunner.sh']
+ENTRYPOINT ['./readyapi/ReadyAPI-2.3.0/bin/testrunner.sh']
 CMD ['-EDefault Environment', './readyapi/startup_test/basic-project-readyapi-project.xml']
