@@ -26,8 +26,8 @@ RUN tar -xzf ./readyapi/ReadyAPI-2.3.0-linux-bin.tar.gz --directory ./readyapi/
 # Clean up
 RUN rm ./readyapi/ReadyAPI-2.3.0-linux-bin.tar.gz
 
-# Acquire license
+# Acquire license, make testrunner executable
 RUN ((echo "1")) | java -jar ./readyapi/licensing/ready-api-license-manager-1.2.2.jar -s SB-MA-PC0FEYGG:1099
-
+RUN chmod +x ./readyapi/ReadyAPI-2.3.0/bin/testrunner.sh
 # Test run from container
-RUN ./readyapi/ReadyAPI-2.3.0/bin/testrunner.sh "-EDefault environment" ./readyapi/startup_test/basic-project-readyapi-project.xml
+RUN sh ./readyapi/ReadyAPI-2.3.0/bin/testrunner.sh "-EDefault environment" ./readyapi/startup_test/basic-project-readyapi-project.xml
