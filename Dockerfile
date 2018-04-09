@@ -5,9 +5,8 @@ MAINTAINER Nathan Wright <nathan.wright@smartbear.com>
 
 # Build variable store
 WORKDIR ./readyapi/ReadyAPI-2.3.0/bin
-ENTRYPOINT ./readyapi/ReadyAPI-2.3.0/bin/testrunner.sh ${project_path}
 ARG ls_address=127.0.0.1
-ARG project_path=""
+ARG project_path="./readyapi/startup_test/basic-project-readyapi-project.xml" 
 ENV ls_address=$ls_address
 ENV project_path=$project_path
 # Update and add java package
@@ -36,3 +35,4 @@ RUN chmod +x ./readyapi/ReadyAPI-2.3.0/bin/testrunner.sh
 RUN sh ./readyapi/ReadyAPI-2.3.0/bin/testrunner.sh "-EDefault environment" ./readyapi/startup_test/basic-project-readyapi-project.xml
 
 # ///// HANDLE TEST EXECUTION /////
+ENTRYPOINT ./readyapi/ReadyAPI-2.3.0/bin/testrunner.sh ${project_path}
