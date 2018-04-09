@@ -8,6 +8,7 @@ ARG ls_address=127.0.0.1
 ARG project_path="./readyapi/startup_test/basic-project-readyapi-project.xml" 
 ENV ls_address=$ls_address
 ENV project_path=$project_path
+
 # Update and add java package
 RUN apt-get update
 RUN ((echo "Y")) | apt-get install default-jre
@@ -31,7 +32,7 @@ RUN ((echo "1")) | java -jar ./readyapi/licensing/ready-api-license-manager-1.2.
 RUN chmod +x ./readyapi/ReadyAPI-2.3.0/bin/testrunner.sh
 
 # Test run from container
-RUN sh ./readyapi/ReadyAPI-2.3.0/bin/testrunner.sh "-EDefault environment" ./readyapi/startup_test/basic-project-readyapi-project.xml
+RUN sh ./readyapi/ReadyAPI-2.3.0/bin/testrunner.sh "-EDefault environment" ${project_path}
 
 # ///// HANDLE TEST EXECUTION /////
 # ENTRYPOINT ['~/readyapi/ReadyAPI-2.3.0/bin/testrunner.sh']
