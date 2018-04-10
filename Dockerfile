@@ -8,7 +8,7 @@ ARG ls_address=127.0.0.1
 ARG project_path="./readyapi/startup_test/basic-project-readyapi-project.xml" 
 ENV ls_address=$ls_address
 ENV project_path=$project_path
-ENTRYPOINT [/tester/ReadyAPI-2.3.0/bin/testrunner.sh]
+ENTRYPOINT [~/readyapi/ReadyAPI-2.3.0/bin/testrunner.sh/]
 
 # Update and add java package
 RUN apt-get update
