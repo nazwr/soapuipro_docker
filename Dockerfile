@@ -5,7 +5,7 @@ MAINTAINER Nathan Wright <nathan.wright@smartbear.com>
 
 # Build variable store
 ARG ls_address=127.0.0.1
-ARG project_path="./readyapi/startup_test/basic-project-readyapi-project.xml" 
+ARG project_path="" 
 ENV ls_address=$ls_address
 ENV project_path=$project_path
 # ENTRYPOINT [./readyapi/ReadyAPI-2.3.0/bin/testrunner.sh]
@@ -20,6 +20,7 @@ RUN ((echo "Y")) | apt-get install openjfx
 RUN mkdir ./readyapi
 COPY ./licensing/ready-api-license-manager-1.2.2.jar ./readyapi/licensing/
 COPY ./startup_test/basic-project-readyapi-project.xml ./readyapi/startup_test/
+COPY ${project_path} ./readyapi/project/to_run.xml
 
 # Download 2.3.0 tarball from Smartbear + unpack
 ADD http://dl.eviware.com/ready-api/2.3.0/ReadyAPI-2.3.0-linux-bin.tar.gz ./readyapi/
@@ -33,8 +34,8 @@ RUN ((echo "1")) | java -jar ./readyapi/licensing/ready-api-license-manager-1.2.
 RUN chmod +x ./readyapi/ReadyAPI-2.3.0/bin/testrunner.sh
 
 # Test run from container
-RUN sh ./readyapi/ReadyAPI-2.3.0/bin/testrunner.sh "-EDefault environment" ${project_path}
+RUN sh ./readyapi/ReadyAPI-2.3.0/bin/testrunner.sh "-EDefault environment" ./readyapi/startup_test/basic-project-readyapi-project.xml
 
 # ///// HANDLE TEST EXECUTION /////
-CMD ["./readyapi/ReadyAPI-2.3.0/bin/testrunner.sh", "-ENew Environment", "./readyapi/startup_test/basic-project-readyapi-project.xml"]
+CMD ["./readyapi/ReadyAPI-2.3.0/bin/testrunner.sh", "-EDefault Environment", "./readyapi/project/to_run.xml"]
 
