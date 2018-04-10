@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="30d5ea2c-1c97-423e-b13d-bab4deca15d4" created="2.3.0" activeEnvironment="Default environment" name="Project 1" resourceRoot="" updated="2.3.0 2018-03-06T16:28:42Z" encryptionMode="Not encrypted" abortOnError="false" runType="SEQUENTIAL" soapui-version="5.4.0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="com.eviware.soapui.impl.wsdl.actions.iface.tools.support.ProSecurityTestRunnerAction@values-local"><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  <con:entry key="Security TestRunner Path" value=""/>
+  <con:entry key="Report Format(s)" value=""/>
+  <con:entry key="Host:Port" value=""/>
+  <con:entry key="Export JUnit Results" value="false"/>
+  <con:entry key="Export All" value="false"/>
+  <con:entry key="Save After" value="false"/>
+  <con:entry key="Add Settings" value="false"/>
+  <con:entry key="WSS Password Type" value=""/>
+  <con:entry key="Endpoint" value=""/>
+  <con:entry key="Select Report Type" value=""/>
+  <con:entry key="System Properties" value=""/>
+  <con:entry key="Test Suite" value="&lt;all>"/>
+  <con:entry key="Password" value=""/>
+  <con:entry key="Print Report" value="false"/>
+  <con:entry key="Open Report" value="false"/>
+  <con:entry key="Security Test" value="&lt;all>"/>
+  <con:entry key="Global Properties" value=""/>
+  <con:entry key="Project Properties" value=""/>
+  <con:entry key="Test Case" value="&lt;all>"/>
+  <con:entry key="Project Password" value=""/>
+  <con:entry key="Username" value=""/>
+  <con:entry key="user-settings.xml Password" value=""/>
+  <con:entry key="Environment" value="Default environment"/>
+  <con:entry key="Enable UI" value="false"/>
+  <con:entry key="Root Folder" value=""/>
+  <con:entry key="Ignore Errors" value="false"/>
+  <con:entry key="Domain" value=""/>
+  <con:entry key="Tool Args" value=""/>
+  <con:entry key="Save Project" value="true"/>
+</xml-fragment>]]></con:setting>
+  </con:settings>
+  <con:interface xsi:type="con:RestService" id="c6c63da6-d9a6-4ede-bd06-719408587ac2" wadlVersion="http://wadl.dev.java.net/2009/02" name="http://maps.googleapis.com" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <con:settings/>
+    <con:definitionCache type="TEXT" rootPart=""/>
+    <con:endpoints>
+      <con:endpoint>http://maps.googleapis.com</con:endpoint>
+    </con:endpoints>
+    <con:resource name="Xml" path="/maps/api/geocode/{format}" id="af38f6c7-5cd1-4c4e-b377-72f5e159cc7e">
+      <con:settings/>
+      <con:parameters>
+        <con:parameter>
+          <con:name>address</con:name>
+          <con:value>Boston</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>Boston</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>key</con:name>
+          <con:value/>
+          <con:style>QUERY</con:style>
+          <con:default/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>format</con:name>
+          <con:value/>
+          <con:style>TEMPLATE</con:style>
+          <con:default/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+      </con:parameters>
+      <con:method name="Xml" id="b4b5803a-d9c4-4f70-8bbd-d9f8e203d509" method="GET">
+        <con:settings/>
+        <con:parameters/>
+        <con:representation type="RESPONSE">
+          <con:mediaType>application/xml; charset=UTF-8</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:element>GeocodeResponse</con:element>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType>application/json; charset=UTF-8</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:element xmlns:ns="http://maps.googleapis.com/maps/api/geocode/xml">ns:Response</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType>application/json; charset=UTF-8</con:mediaType>
+          <con:status>400</con:status>
+          <con:params/>
+          <con:element xmlns:ns="http://maps.googleapis.com/maps/api/geocode/xml">ns:Fault</con:element>
+        </con:representation>
+        <con:request name="Request 1" id="6970afc9-5e1e-4336-ba0b-7643204a2913" mediaType="application/json">
+          <con:settings>
+            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+          </con:settings>
+          <con:endpoint>https://maps.googleapis.com</con:endpoint>
+          <con:request/>
+          <con:originalUri>http://maps.googleapis.com/maps/api/geocode/xml</con:originalUri>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:parameters>
+            <con:entry key="address" value="Boston"/>
+            <con:entry key="format" value="json"/>
+            <con:entry key="key" value="AIzaSyD0C99bBuHC1Y7E0YLD7ZYzfJxoUof_cjo"/>
+          </con:parameters>
+          <con:parameterOrder>
+            <con:entry>address</con:entry>
+            <con:entry>key</con:entry>
+            <con:entry>format</con:entry>
+          </con:parameterOrder>
+        </con:request>
+      </con:method>
+    </con:resource>
+  </con:interface>
+  <con:testSuite id="655269e5-3420-4faf-8bc3-9a45d11d7178" name="TestSuite 1">
+    <con:settings/>
+    <con:runType>SEQUENTIAL</con:runType>
+    <con:testCase id="8129c670-b6d3-480f-8f11-59a71826d236" discardOkResults="false" failOnError="false" failTestCaseOnErrors="true" keepSession="false" name="TestCase 1" searchProperties="true" timeout="0" wsrmEnabled="false" wsrmVersion="1.0" wsrmAckTo="" amfAuthorisation="false" amfEndpoint="" amfLogin="" amfPassword="" maxResults="0">
+      <con:settings/>
+      <con:savedRecentRuns>1</con:savedRecentRuns>
+      <con:testStep type="datasource" name="DataSource" id="281b71fc-70a3-4f64-a10a-49022b4ba6c4">
+        <con:settings/>
+        <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:dataSource type="Excel">
+            <con:configuration>
+              <file>C:/Users/Nathan.Wright/Documents/exampleDocs/cityStates.xlsx</file>
+              <worksheet/>
+              <cell>A2</cell>
+              <ignoreEmpty>false</ignoreEmpty>
+              <evaluateFormulas>false</evaluateFormulas>
+            </con:configuration>
+          </con:dataSource>
+          <con:shared>true</con:shared>
+          <con:restartShared>true</con:restartShared>
+          <con:property>City</con:property>
+          <con:property>State</con:property>
+          <con:startRow/>
+          <con:endRow/>
+          <con:recordsPerIteration>6</con:recordsPerIteration>
+          <con:completeLastOperation>true</con:completeLastOperation>
+          <con:trimValues>false</con:trimValues>
+          <con:entitizeValues>false</con:entitizeValues>
+          <con:restartOnRun>true</con:restartOnRun>
+          <con:expandProperties>false</con:expandProperties>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="cityRequest" id="abf5a05e-d44c-4ef0-b7e8-6e60681558c9">
+        <con:settings/>
+        <con:config service="http://maps.googleapis.com" resourcePath="/maps/api/geocode/{format}" methodName="Xml" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="cityRequest" id="6970afc9-5e1e-4336-ba0b-7643204a2913" mediaType="application/json">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+              <con:setting id="com.eviware.soapui.impl.support.AbstractHttpRequest@dump-file"/>
+            </con:settings>
+            <con:endpoint>https://maps.googleapis.com</con:endpoint>
+            <con:request/>
+            <con:originalUri>http://maps.googleapis.com/maps/api/geocode/xml</con:originalUri>
+            <con:assertion type="JsonPath Existence Match" id="db412aeb-d714-4959-b4d1-262fd1132942" name="Check for existence of [formatted_address]" disabled="true">
+              <con:configuration>
+                <path>$['results'][0]['formatted_address']</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="SwaggerComplianceAssertion" id="e331ca6e-6e93-497a-ab56-6d99392cc88f" name="Swagger Compliance Assertion">
+              <con:configuration>
+                <swaggerUrl/>
+                <strictMode>true</strictMode>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters>
+              <con:entry key="address" value="${DataSource#City}"/>
+              <con:entry key="format" value="json"/>
+              <con:entry key="key" value="AIzaSyD0C99bBuHC1Y7E0YLD7ZYzfJxoUof_cjo"/>
+            </con:parameters>
+            <con:parameterOrder>
+              <con:entry>address</con:entry>
+              <con:entry>key</con:entry>
+              <con:entry>format</con:entry>
+            </con:parameterOrder>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="stateRequest" id="a1dc0bc0-76ee-4417-9c92-01f643c5b6a9">
+        <con:settings/>
+        <con:config service="http://maps.googleapis.com" resourcePath="/maps/api/geocode/{format}" methodName="Xml" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="stateRequest" id="6970afc9-5e1e-4336-ba0b-7643204a2913" mediaType="application/json">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>https://maps.googleapis.com</con:endpoint>
+            <con:request/>
+            <con:originalUri>http://maps.googleapis.com/maps/api/geocode/xml</con:originalUri>
+            <con:assertion type="JsonPath Existence Match" id="db412aeb-d714-4959-b4d1-262fd1132942" name="Check for existence of [formatted_address]">
+              <con:configuration>
+                <path>$['results'][0]['formatted_address']</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="JsonPath Match" id="049327ec-c4d1-43d0-b759-3c56d6a46185" name="Match content of [long_name]">
+              <con:configuration>
+                <path>$['results'][0]['address_components'][0]['long_name']</path>
+                <content>${DataSource#State}</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters>
+              <con:entry key="address" value="${cityRequest#Response#$['results'][0]['address_components'][2]['long_name']}"/>
+              <con:entry key="format" value="json"/>
+              <con:entry key="key" value="AIzaSyD0C99bBuHC1Y7E0YLD7ZYzfJxoUof_cjo"/>
+            </con:parameters>
+            <con:parameterOrder>
+              <con:entry>address</con:entry>
+              <con:entry>key</con:entry>
+              <con:entry>format</con:entry>
+            </con:parameterOrder>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="datasourceloop" name="DataSource Loop" id="1516666a-2cf3-4cfb-9d73-0d860a50b4e1">
+        <con:settings/>
+        <con:config>
+          <dataSourceStep>DataSource</dataSourceStep>
+          <targetStep>cityRequest</targetStep>
+          <discardResults>false</discardResults>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+      <con:reportParameters/>
+      <con:breakPoints>
+        <con:testStepId>281b71fc-70a3-4f64-a10a-49022b4ba6c4</con:testStepId>
+        <con:status>NONE</con:status>
+        <con:properties/>
+      </con:breakPoints>
+      <con:breakPoints>
+        <con:testStepId>1516666a-2cf3-4cfb-9d73-0d860a50b4e1</con:testStepId>
+        <con:status>NONE</con:status>
+        <con:properties/>
+      </con:breakPoints>
+    </con:testCase>
+    <con:properties/>
+    <con:reportParameters/>
+  </con:testSuite>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:requirements/>
+  <con:properties/>
+  <con:wssContainer/>
+  <con:databaseConnectionContainer/>
+  <con:jmsConnectionContainer/>
+  <con:oAuth2ProfileContainer/>
+  <con:oAuth1ProfileContainer/>
+  <con:reporting>
+    <con:reportTemplates/>
+    <con:xmlTemplates/>
+    <con:xmlTemplates/>
+    <con:parameters/>
+    <con:parameters/>
+  </con:reporting>
+  <con:reporting/>
+  <con:authRepository/>
+  <con:tags/>
+</con:soapui-project>
