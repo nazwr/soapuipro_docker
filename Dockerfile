@@ -9,7 +9,7 @@ ARG project_path="./readyapi/startup_test/basic-project-readyapi-project.xml"
 ENV ls_address=$ls_address
 ENV project_path=$project_path
 # ENTRYPOINT [./readyapi/ReadyAPI-2.3.0/bin/testrunner.sh]
-ENTRYPOINT [ "/bin/bash/" ]
+# ENTRYPOINT [ "/bin/bash/" ]
 # Update and add java package
 RUN apt-get update
 RUN ((echo "Y")) | apt-get install default-jre
@@ -36,5 +36,5 @@ RUN chmod +x ./readyapi/ReadyAPI-2.3.0/bin/testrunner.sh
 RUN sh ./readyapi/ReadyAPI-2.3.0/bin/testrunner.sh "-EDefault environment" ${project_path}
 
 # ///// HANDLE TEST EXECUTION /////
-# CMD ["/bin/bash/", "./readyapi/startup_test/basic-project-readyapi-project.xml"]
+CMD ["./readyapi/ReadyAPI-2.3.0/bin/testrunner.sh", "./readyapi/startup_test/basic-project-readyapi-project.xml"]
 
