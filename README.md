@@ -31,7 +31,7 @@ docker build --build-arg ls_address=[server_address] --build-arg project_path=[p
 ```
 - ***server_address***: License server IP address or hostname
 - ***project_path***: Local path of project XML to be built into container
-- ***tag_name***: Tag associated w/build.
+- ***tag_name***: Tag associated w/build (eg. soapuiproject).
 - *Build will typically take ~5 minutes depending on available resources*
 
 ------
@@ -52,7 +52,7 @@ docker run [tag_name] '[readyapi_arguments] ./readyapi/project/run.xml'
 
 ## READYAPI ARGUMENTS EXAMPLE
 ```sh
-docker run soapuipro "-sTestSuite 1" "-cTestCase 1" "-EDefault environment" ./readyapi/project/run.xml
+docker run soapuiproject "-sTestSuite 1" "-cTestCase 1" "-EDefault environment" ./readyapi/project/run.xml
 ```
 [More information on the associated arguments can be found in the official documentation.](https://support.smartbear.com/readyapi/docs/soapui/running/automating/cli.html)
 
