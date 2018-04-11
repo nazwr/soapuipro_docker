@@ -16,9 +16,11 @@ Please submit all feedback/bugs as issues in this repository.
 - **Currently only supports flat XML projects (default type)**
 
 ------
-## PULL
+## PULL REPOSITORY
 ``` sh
 git pull https://github.com/nate01776/dockerSUI.git
+```
+```sh
 cd ./dockerSUI
 ```
 
