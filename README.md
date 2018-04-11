@@ -52,7 +52,7 @@ docker run [tag_name] '[readyapi_arguments] ./readyapi/project/run.xml'
 
 ## READYAPI ARGUMENTS EXAMPLE
 ```sh
-docker run soapuipro "-sTestSuite 1" "-cTestCase 1" "-RTest Case Report" "-EDefault environment" ./readyapi/project/run.xml
+docker run soapuipro "-sTestSuite 1" "-cTestCase 1" "-EDefault environment" ./readyapi/project/run.xml
 ```
 [More information on the associated arguments can be found in the official documentation.](https://support.smartbear.com/readyapi/docs/soapui/running/automating/cli.html)
 
