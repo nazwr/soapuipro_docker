@@ -9,7 +9,7 @@ Please submit all feedback/bugs as issues in this repository.
 
 ------
 ## REQUIREMENTS & RESTRICTIONS
-
+- Docker 17.09.0-ce or later
 - Valid SoapUI PRO floating license
 - License hosted on Protection floating license server and [configured as described in official docs](https://support.smartbear.com/readyapi/docs/general-info/licensing/activate/floating/configure-license-server.html).
 - Local project file, XML format.
