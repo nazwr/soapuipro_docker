@@ -8,6 +8,7 @@ ARG ls_address=127.0.0.1
 ARG project_path="" 
 ENV ls_address=$ls_address
 ENV project_path=$project_path
+ENV run_arg="-EDefault environment"
 # ENTRYPOINT [./readyapi/ReadyAPI-2.3.0/bin/testrunner.sh]
 # ENTRYPOINT [ "/bin/bash/" ]
 # Update and add java package
@@ -20,7 +21,7 @@ RUN ((echo "Y")) | apt-get install openjfx
 RUN mkdir ./readyapi
 COPY ./licensing/ready-api-license-manager-1.2.2.jar ./readyapi/licensing/
 COPY ./startup_test/basic-project-readyapi-project.xml ./readyapi/startup_test/
-COPY ${project_path} ./readyapi/project/to_run.xml
+COPY ${project_path} ./readyapi/project/run.xml
 
 # Download 2.3.0 tarball from Smartbear + unpack
 ADD http://dl.eviware.com/ready-api/2.3.0/ReadyAPI-2.3.0-linux-bin.tar.gz ./readyapi/
@@ -33,10 +34,13 @@ RUN rm ./readyapi/ReadyAPI-2.3.0-linux-bin.tar.gz
 RUN ((echo "1")) | java -jar ./readyapi/licensing/ready-api-license-manager-1.2.2.jar -s ${ls_address}:1099
 RUN chmod +x ./readyapi/ReadyAPI-2.3.0/bin/testrunner.sh
 
-# Test run from container
+# Test run when container builds container
 RUN sh ./readyapi/ReadyAPI-2.3.0/bin/testrunner.sh "-EDefault environment" ./readyapi/startup_test/basic-project-readyapi-project.xml
 
 # ///// HANDLE TEST EXECUTION /////
+# Executable
 ENTRYPOINT [ "./readyapi/ReadyAPI-2.3.0/bin/testrunner.sh" ]
-CMD ["-EDefault environment", "./readyapi/project/to_run.xml"]
+
+# Default command
+CMD ["-EDefault environment", "./readyapi/project/run.xml"]
 
