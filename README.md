@@ -1,11 +1,11 @@
 # SOAPUI PRO FOR DOCKER
-This docker image was created to aid in the execution of SoapUI PRO projects in container based environments. This is a *work in progress*, and the full feature set found in the SoapUI Testrunner has not been tested on the container version.
+This project was created to aid in the execution of SoapUI PRO tests in container based environments. This is a *work in progress*, and the full feature set found in the SoapUI Testrunner has not been tested on the container version.
 
 This implementation of SoapUI and Docker requires building the project file into the container, and then passing arguments to tailor how this will run outside of the default full project execution. More details can be found below.
 
 **SoapUI PRO** is part of Smartbear's ReadyAPI testing suite, a fully fledged, API specific set of tools designed to cover functional, security and performance testing - as well as API virtualization. [For more information on using SoapUI PRO, please visit the Smartbear website.](https://smartbear.com/product/ready-api/soapui/overview/)
 
-Please submit all feedback/bugs as issues in the [associated repository.](https://github.com/nate01776/dockerSUI)
+Please submit all feedback/bugs as issues in this repository.
 
 ------
 ## REQUIREMENTS & RESTRICTIONS
@@ -14,9 +14,10 @@ Please submit all feedback/bugs as issues in the [associated repository.](https:
 - License hosted on Protection floating license server and [configured as described in official docs](https://support.smartbear.com/readyapi/docs/general-info/licensing/activate/floating/configure-license-server.html).
 - Local project file, XML format.
 - **Currently only supports flat XML projects (default type)**
+
 ------
 ## PULL
-``` sh
+``` js
 docker pull nate01776/soapuipro:[version_tag]
 ```
 - ***version_tag***: Value of the version that is intended to be used in the container. New versions will be tested and deployed to this repository as they are released.
