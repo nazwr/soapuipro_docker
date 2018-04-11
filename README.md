@@ -17,10 +17,10 @@ Please submit all feedback/bugs as issues in this repository.
 
 ------
 ## PULL
-``` js
-docker pull nate01776/soapuipro:[version_tag]
+``` sh
+git pull https://github.com/nate01776/dockerSUI.git
+cd ./dockerSUI
 ```
-- ***version_tag***: Value of the version that is intended to be used in the container. New versions will be tested and deployed to this repository as they are released.
 
 ------
 ## BUILD
@@ -50,9 +50,9 @@ docker run [tag_name] '[readyapi_arguments] ./readyapi/project/run.xml'
 
 ## READYAPI ARGUMENTS EXAMPLE
 ```sh
-docker run soapuipro '-ENew Environment ./readyapi/project/run.xml'
+docker run soapuipro "-sTestSuite 1" "-cTestCase 1" "-RTest Case Report" "-EDefault environment" ./readyapi/project/run.xml
 ```
-More information on the associated arguments can be found in the official documentation.
+[More information on the associated arguments can be found in the official documentation.](https://support.smartbear.com/readyapi/docs/soapui/running/automating/cli.html)
 
 ------
 
