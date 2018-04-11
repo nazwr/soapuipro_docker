@@ -1,3 +1,5 @@
+![Docker Logo](http://linux-command.org/dist/assets/images/docker/main.jpg)
+
 # SOAPUI PRO FOR DOCKER
 This project was created to aid in the execution of SoapUI PRO tests in container based environments. This is a *work in progress*, and the full feature set found in the SoapUI Testrunner has not been tested on the container version.
 
