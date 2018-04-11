@@ -37,7 +37,7 @@ docker build --build-arg ls_address=[server_address] --build-arg project_path=[p
 
 ### EXAMPLE
 ```sh
-docker build --build-arg ls_address=127.0.0.1 --build-arg project_path=./readyapi_project.xml -t soapuiproject
+docker build --build-arg ls_address=127.0.0.1 --build-arg project_path=./readyapi_project.xml -t soapuiproject .
 ```
 
 ------
