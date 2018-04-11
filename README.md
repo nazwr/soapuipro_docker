@@ -58,8 +58,9 @@ docker run soapuipro "-sTestSuite 1" "-cTestCase 1" "-RTest Case Report" "-EDefa
 
 ------
 
-## ROADMAP
+## FUTURE GOALS
 - Support packaged projects instead of XML files - this will allow inclusion of Datasources in some of the standard types, as well as potentially composite projects.
+- Thin down base image instead of using full ubuntu.
 - Support for composite projects on local machine
 - Support ability to pull composite project from repository endpoint
 - Support for all report types
