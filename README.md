@@ -32,7 +32,13 @@ docker build --build-arg ls_address=[server_address] --build-arg project_path=[p
 - ***server_address***: License server IP address or hostname
 - ***project_path***: Local path of project XML to be built into container
 - ***tag_name***: Tag associated w/build (eg. soapuiproject).
+- *The XML project file should be copied into the same repository the container will be built from*
 - *Build will typically take ~5 minutes depending on available resources*
+
+### EXAMPLE
+```sh
+docker build --build-arg ls_address=127.0.0.1 --build-arg project_path=./readyapi_project.xml -t soapuiproject
+```
 
 ------
 ## RUN
