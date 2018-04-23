@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:soapui-project id="2d1cf692-fcbb-466e-97ee-ec326245d545" created="2.3.0" activeEnvironment="Default environment" name="basic_project" resourceRoot="" updated="2.2.0 20171026-0943" encryptionMode="Not encrypted" xmlns:con="http://eviware.com/soapui/config">
-  <con:settings/>
+<con:soapui-project id="2d1cf692-fcbb-466e-97ee-ec326245d545" created="2.3.0" activeEnvironment="Default" name="basic_project" resourceRoot="" updated="2.3.0 2018-03-06T16:28:42Z" encryptionMode="Not encrypted" abortOnError="false" runType="SEQUENTIAL" soapui-version="5.4.0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="Port">8081</con:setting>
+  </con:settings>
   <con:interface xsi:type="con:RestService" id="a97ebe4d-9059-4c45-8421-2f1b1d3e351c" wadlVersion="http://wadl.dev.java.net/2009/02" name="http://dl.eviware.com" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <con:settings/>
     <con:definitionCache type="TEXT" rootPart=""/>
@@ -39,7 +41,7 @@
   <con:testSuite id="4ccbd3a7-4400-4147-bb48-76351e41fe61" name="basic_testsuite">
     <con:settings/>
     <con:runType>SEQUENTIAL</con:runType>
-    <con:testCase id="7ffc2ec6-5803-45f8-9650-2f4c4eeb0252" discardOkResults="true" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="single_request" searchProperties="true" timeout="0">
+    <con:testCase id="7ffc2ec6-5803-45f8-9650-2f4c4eeb0252" discardOkResults="true" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="single_request" searchProperties="true" timeout="0" maxResults="0">
       <con:settings/>
       <con:savedRecentRuns>1</con:savedRecentRuns>
       <con:testStep type="restrequest" name="Get 200" id="fe31bf49-43f1-4efe-8993-f4fa6c1464e5">
