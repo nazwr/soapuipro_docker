@@ -12,8 +12,6 @@ ENV project_path=$project_path
 
 # Update and add java package
 RUN apt-get update
-# RUN ((echo "Y")) | apt-get install default-jre
-# RUN ((echo "Y")) | apt-get install openjfx
 
 # ///// HANDLE READY API /////
 # Create unpack directory, move test script into test folder, license JAR into licensing
