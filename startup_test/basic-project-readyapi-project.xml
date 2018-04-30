@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:soapui-project id="2d1cf692-fcbb-466e-97ee-ec326245d545" created="2.3.0" activeEnvironment="Default" name="basic_project" resourceRoot="" updated="2.3.0 2018-03-06T16:28:42Z" encryptionMode="Not encrypted" abortOnError="false" runType="SEQUENTIAL" soapui-version="5.4.0" xmlns:con="http://eviware.com/soapui/config">
+<con:soapui-project id="2d1cf692-fcbb-466e-97ee-ec326245d545" created="2.3.0" activeEnvironment="Default environment" name="basic_project" resourceRoot="" updated="2.2.0 20171026-0943" encryptionMode="Not encrypted" abortOnError="false" runType="SEQUENTIAL" soapui-version="5.4.0" xmlns:con="http://eviware.com/soapui/config">
   <con:settings>
     <con:setting id="Port">8081</con:setting>
   </con:settings>
