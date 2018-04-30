@@ -1,6 +1,7 @@
 # ///// INITIAL CONFIG /////
 # Linux image to run application on
-FROM ubuntu:16.04
+# FROM ubuntu:16.04
+FROM rburgst/java8-openjfx-docker:latest
 MAINTAINER Nathan Wright <nathan.wright@smartbear.com>
 
 # Build variable store
@@ -11,8 +12,8 @@ ENV project_path=$project_path
 
 # Update and add java package
 RUN apt-get update
-RUN ((echo "Y")) | apt-get install default-jre
-RUN ((echo "Y")) | apt-get install openjfx
+# RUN ((echo "Y")) | apt-get install default-jre
+# RUN ((echo "Y")) | apt-get install openjfx
 
 # ///// HANDLE READY API /////
 # Create unpack directory, move test script into test folder, license JAR into licensing
