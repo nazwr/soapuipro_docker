@@ -27,7 +27,10 @@ cd ./dockerSUI
 ------
 ## BUILD
 ``` sh
-docker build --build-arg ls_address=[server_address] --build-arg project_path=[project_path] -t [tag_name] .
+  docker build \
+    --build-arg ls_address=[server_address] \
+    --build-arg project_path=[project_path] \
+    -t [tag_name] .
 ```
 - **server_address**: License server IP address or hostname
 - **project_path**: Local path of project XML to be built into container
