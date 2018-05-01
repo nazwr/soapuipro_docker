@@ -32,13 +32,13 @@ cd ./dockerSUI
     --build-arg project_path=[project_path] \
     -t [tag_name] .
 ```
-```diff
-+ **server_address**: License server IP address or hostname
-+ **project_path**: Local path of project XML to be built into container
+
+- **server_address (REQ)**: License server IP address or hostname
+- **project_path (REQ)**: Local path of project XML to be built into container
 - **tag_name**: Tag associated w/build (eg. soapuiproject).
 - ***The XML project file should be copied into the same repository the container will be built from***
 - *Build will typically take ~5 minutes depending on available resources*
-```
+
 
 ### EXAMPLE
 ```sh
