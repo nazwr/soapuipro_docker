@@ -18,10 +18,7 @@ Please submit all feedback/bugs as issues in this repository.
 ------
 ## CLONE REPOSITORY
 ``` sh
-git clone https://github.com/nate01776/dockerSUI.git
-```
-```sh
-cd ./dockerSUI
+git clone https://github.com/nate01776/dockerSUI.git && cd ./dockerSUI
 ```
 
 ------
