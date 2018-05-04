@@ -5,7 +5,7 @@ This implementation of SoapUI and Docker requires building the project file into
 
 **SoapUI PRO** is part of Smartbear's ReadyAPI testing suite, a fully fledged, API specific set of tools designed to cover functional, security and performance testing - as well as API virtualization. [For more information on using SoapUI PRO, please visit the Smartbear website.](https://smartbear.com/product/ready-api/soapui/overview/)
 
-Please submit all feedback/bugs as issues in this repository.
+This is not supported by Smartbear - Please submit all feedback/bugs as issues in this repository.
 
 ------
 ## REQUIREMENTS & RESTRICTIONS
