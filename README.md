@@ -1,4 +1,4 @@
-# SOAPUI PRO FOR DOCKER
+# SOAPUI PRO && DOCKER
 This project was created to aid in the execution of SoapUI PRO tests in container based environments. This is a *work in progress*, and the full feature set found in the SoapUI Testrunner has not been tested on the container version.
 
 This implementation of SoapUI and Docker requires building the project file into the container, and then passing arguments to tailor how this will run outside of the default full project execution. More details can be found below.
