@@ -40,25 +40,25 @@ $ cd ./soapui_docker
 
 ### EXAMPLE
 ```sh
-  docker build \
-    --build-arg ls_address=127.0.0.1 \
-    --build-arg project_path=./readyapi_project.xml \
-    -t soapuiproject .
+  $ docker build \
+      --build-arg ls_address=127.0.0.1 \
+      --build-arg project_path=./readyapi_project.xml \
+      -t soapuiproject .
 ```
 
 ------
 ## RUN
 ### AS FULL PROJECT
 ```sh
-docker run [tag_name]
+$ docker run [tag_name]
 ```
 - **tag_name**: Same tag as from build step.
 
 ### WITH ARGUMENTS
 ```sh
-  docker run [tag_name] \
-    '[readyapi_arguments]' \
-    ./readyapi/project/run.xml
+  $ docker run [tag_name] \
+      '[readyapi_arguments]' \
+      ./readyapi/project/run.xml
 ```
 - **tag_name**: Same tag as from build step. 
 - **readyapi_arguments**: Commands should be passed in as they would against the testrunner, these are mapped to the runner inside of the container and executed. Ensure the full list - including the project run file - is wrapped as a string.
