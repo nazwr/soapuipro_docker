@@ -1,7 +1,6 @@
 # ///// INITIAL CONFIG /////
 # Linux image to run application on
-# FROM ubuntu:16.04
-FROM rburgst/java8-openjfx-docker:latest
+FROM ubuntu:16.04
 MAINTAINER Nathan Wright <nathan.wright@smartbear.com>
 
 # Build variable store
