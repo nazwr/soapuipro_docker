@@ -18,8 +18,8 @@ This is not supported by Smartbear - please submit all feedback/bugs in this rep
 ------
 ## CLONE REPOSITORY
 ``` sh
-git clone https://github.com/nate01776/soapuipro_docker.git
-cd ./soapui_docker
+$ git clone https://github.com/nate01776/soapuipro_docker.git
+$ cd ./soapui_docker
 ```
 
 ------
