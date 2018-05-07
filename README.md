@@ -9,16 +9,17 @@ This is not supported by Smartbear - please submit all feedback/bugs in this rep
 
 ------
 ## REQUIREMENTS & RESTRICTIONS
-- Docker 17.09.0-ce or later
+- Docker 17.09 +
 - Valid SoapUI PRO floating license
 - License hosted on Protection floating license server and [configured as described in official docs](https://support.smartbear.com/readyapi/docs/general-info/licensing/activate/floating/configure-license-server.html).
-- Local project file, XML format.
+- Local project file
 - **Currently only supports flat XML projects (default type)**
 
 ------
 ## CLONE REPOSITORY
 ``` sh
-git clone https://github.com/nate01776/dockerSUI.git && cd ./dockerSUI
+git clone https://github.com/nate01776/soapuipro_docker.git
+cd ./soapui_docker
 ```
 
 ------
@@ -76,7 +77,6 @@ docker run [tag_name]
 
 ## FUTURE
 - Support packaged projects instead of XML files - this will allow inclusion of Datasources in some of the standard types, as well as potentially composite projects.
-- ~~Thin down base image instead of using full ubuntu.~~
 - Support for composite projects on local machine
 - Support ability to pull composite project from repository endpoint
 - Support for all report types
