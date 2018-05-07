@@ -25,10 +25,10 @@ $ cd ./soapui_docker
 ------
 ## BUILD
 ``` sh
-  docker build \
-    --build-arg ls_address=[server_address] \
-    --build-arg project_path=[project_path] \
-    -t [tag_name] .
+  $ docker build \
+      --build-arg ls_address=[server_address] \
+      --build-arg project_path=[project_path] \
+      -t [tag_name] .
 ```
 
 - **server_address (REQ)**: License server IP address or hostname
@@ -65,11 +65,11 @@ $ docker run [tag_name]
 
 ### EXAMPLE
 ```sh
-  docker run soapuiproject \
-    "-sTestSuite 1" \
-    "-cTestCase 1" \
-    "-EDefault environment" \
-    ./readyapi/project/run.xml
+  $ docker run soapuiproject \
+      "-sTestSuite 1" \
+      "-cTestCase 1" \
+      "-EDefault environment" \
+      ./readyapi/project/run.xml
 ```
 [More information on the associated arguments can be found in the official documentation.](https://support.smartbear.com/readyapi/docs/soapui/running/automating/cli.html)
 
