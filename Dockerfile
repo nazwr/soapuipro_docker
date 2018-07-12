@@ -1,7 +1,7 @@
 # ///// INITIAL CONFIG /////
 # Linux image to run application on
 FROM ubuntu:16.04
-MAINTAINER Nathan Wright <nathan.wright@smartbear.com>
+MAINTAINER Nathan Wright <nate01776@gmail.com>
 
 # Build variable store
 ARG ls_address=127.0.0.1

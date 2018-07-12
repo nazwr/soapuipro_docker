@@ -5,7 +5,7 @@ This implementation of SoapUI and Docker requires building the project file into
 
 SoapUI PRO introduces advanced functionality over the open source SoapUI, such as data driven testing.
 
-This is not supported by Smartbear - please submit all feedback/bugs in this repository.
+**This is not supported by Smartbear - please submit all feedback/bugs in this repository.**
 
 ------
 ## REQUIREMENTS & RESTRICTIONS
@@ -57,8 +57,8 @@ $ docker run [tag_name]
 ### WITH ARGUMENTS
 ```sh
   $ docker run [tag_name] \
-      '[readyapi_arguments]' \
-      ./readyapi/project/run.xml
+      "[readyapi_arguments]" \
+      "./readyapi/project/run.xml"
 ```
 - **tag_name**: Same tag as from build step. 
 - **readyapi_arguments**: Commands should be passed in as they would against the testrunner, these are mapped to the runner inside of the container and executed. Ensure the full list - including the project run file - is wrapped as a string.
@@ -69,7 +69,7 @@ $ docker run [tag_name]
       "-sTestSuite 1" \
       "-cTestCase 1" \
       "-EDefault environment" \
-      ./readyapi/project/run.xml
+      "./readyapi/project/run.xml"
 ```
 [More information on the associated arguments can be found in the official documentation.](https://support.smartbear.com/readyapi/docs/soapui/running/automating/cli.html)
 
