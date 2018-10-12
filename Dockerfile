@@ -1,7 +1,7 @@
 # ///// INITIAL CONFIG /////
 # Linux image to run application on
 FROM ubuntu:16.04
-MAINTAINER Nathan Wright <nathan.wright@smartbear.com>
+MAINTAINER Nathan Wright <nate01776@gmail.com>
 
 # Build variable store
 ARG ls_address=127.0.0.1
@@ -40,5 +40,5 @@ RUN sh ./readyapi/ReadyAPI-2.3.0/bin/testrunner.sh "-EDefault environment" ./rea
 ENTRYPOINT [ "./readyapi/ReadyAPI-2.3.0/bin/testrunner.sh" ]
 
 # Default command
-CMD ["-EDefault environment", "./readyapi/project/run.xml"]
+CMD ["-EDefault environment", ,"./readyapi/project/run.xml"]
 
