@@ -5,7 +5,7 @@ This implementation of SoapUI and Docker requires building the project file into
 
 SoapUI PRO introduces advanced functionality over the open source SoapUI, such as data driven testing.
 
-**This is not supported by Smartbear - please submit all feedback/bugs in this repository.**
+**This is not supported by Smartbear**
 
 ------
 ## REQUIREMENTS & RESTRICTIONS
