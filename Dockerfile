@@ -40,5 +40,5 @@ RUN sh ./readyapi/ReadyAPI-2.3.0/bin/testrunner.sh "-EDefault environment" ./rea
 ENTRYPOINT [ "./readyapi/ReadyAPI-2.3.0/bin/testrunner.sh" ]
 
 # Default command
-CMD ["-EDefault environment", ,"./readyapi/project/run.xml"]
+CMD ["-EDefault environment", "./readyapi/project/run.xml"]
 
