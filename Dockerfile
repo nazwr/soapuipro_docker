@@ -8,6 +8,7 @@ ARG ls_address=127.0.0.1
 ARG project_path="" 
 ENV ls_address=$ls_address
 ENV project_path=$project_path
+LABEL "com.datadoghq.ad.logs"='[<LOGS_CONFIG>]'
 
 # Update and add java package
 RUN apt-get update
