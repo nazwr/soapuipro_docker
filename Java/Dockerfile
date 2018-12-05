@@ -1,6 +1,7 @@
 # ///// INITIAL CONFIG /////
 # Linux image to run application on
-FROM ubuntu:16.04
+# FROM ubuntu:16.04
+FROM java:openjdk-8
 MAINTAINER Nathan Wright <nate01776@gmail.com>
 
 # Build variable store
@@ -10,9 +11,6 @@ ENV ls_address=$ls_address
 ENV project_path=$project_path
 
 # Update and add java package
-RUN apt-get update
-RUN ((echo "Y")) | apt-get install default-jre
-RUN ((echo "Y")) | apt-get install openjfx
 
 # ///// HANDLE READY API /////
 # Create unpack directory, move test script into test folder, license JAR into licensing
@@ -23,15 +21,15 @@ COPY ./startup_test/basic-project-readyapi-project.xml ./readyapi/startup_test/
 COPY ${project_path} ./readyapi/project/run.xml
 
 # Download 2.3.0 tarball from Smartbear + unpack
-ADD http://dl.eviware.com/ready-api/2.5.0/ReadyAPI-2.5.0-linux-bin.tar.gz ./readyapi/
-RUN tar -xzf ./readyapi/ReadyAPI-2.5.0-linux-bin.tar.gz --directory ./readyapi/
+ADD http://dl.eviware.com/ready-api/2.5.0/ReadyAPI-x64-2.5.0.sh ./readyapi
+RUN chmod +x ./readyapi/ReadyAPI-x64-2.5.0.sh
+RUN ./readyapi/ReadyAPI-x64-2.5.0.sh -q -dir ./ReadyAPI-2.5.0
 
 # Clean up
-RUN rm ./readyapi/ReadyAPI-2.5.0-linux-bin.tar.gz
+RUN rm ./readyapi/ReadyAPI-x64-2.5.0.sh
 
 # Acquire license, make testrunner executable
 RUN ((echo "1")) | java -jar ./readyapi/licensing/ready-api-license-manager-1.2.2.jar -s ${ls_address}:1099
-RUN chmod +x ./readyapi/ReadyAPI-2.5.0/bin/testrunner.sh
 
 # Test run when container builds container
 RUN sh ./readyapi/ReadyAPI-2.5.0/bin/testrunner.sh "-EDefault environment" ./readyapi/startup_test/basic-project-readyapi-project.xml
