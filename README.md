@@ -2,9 +2,7 @@
 
 This project was created to aid in the execution of SoapUI PRO tests in container based environments. This is a *work in progress*, and the full feature set found in the SoapUI Testrunner has not been tested on the container version.
 
-This implementation of SoapUI and Docker requires building the project file into the container, and then passing arguments to tailor how this will run outside of the default full project execution. More details can be found below.
-
-SoapUI PRO introduces advanced functionality over the open source SoapUI, such as data driven testing.
+This implementation of SoapUI and Docker requires building the project file into the container, and then passing arguments to tailor how this will run outside of the default full project execution. A library of images could then be built/maintained, and pulled in as needed for execution by a pipeline or larger process.
 
 **This is not supported by Smartbear**
 
@@ -26,7 +24,7 @@ $ cd ./soapui_docker
 ------
 ## SETUP
 
-- This repository contains 3 folders w/Dockerfiles based off 3 different base images. They are all similar in footprint and run efficiency, but there is a significant build-time savings with the Java image (as it starts with the required dependencies). Once the image is built, there is very little difference outside of what is required by RAPI to run the project included in the build.
+- This repository contains 3 folders w/Dockerfiles based off 3 different base images. They are all similar in footprint and run efficiency, but there is a significant build-time savings with the Java image (as it starts with the required dependencies). Once the image is built, the requirements of the included project (if a certain library or process needs to be included) should be used to define which option to build.
 - Time to build:
     - Ubuntu: ~7 minutes
     - RHEL: ~4 minutes
