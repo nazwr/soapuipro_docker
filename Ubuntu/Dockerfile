@@ -42,4 +42,3 @@ ENTRYPOINT [ "./readyapi/ReadyAPI-2.5.0/bin/testrunner.sh" ]
 
 # Default command
 CMD ["-EDefault environment", "-f./readyapi/reports", "-RJUnit-Style HTML Report", "./readyapi/project/run.xml"]
-
