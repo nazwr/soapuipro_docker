@@ -1,26 +1,4 @@
-# SOAPUI PRO & DOCKER
-This project was created to aid in the execution of SoapUI PRO tests in container based environments. This is a *work in progress*, and the full feature set found in the SoapUI Testrunner has not been tested on the container version.
-
-This implementation of SoapUI and Docker requires building the project file into the container, and then passing arguments to tailor how this will run outside of the default full project execution. More details can be found below.
-
-SoapUI PRO introduces advanced functionality over the open source SoapUI, such as data driven testing.
-
-**This is not supported by Smartbear - please submit all feedback/bugs in this repository.**
-
-------
-## REQUIREMENTS & RESTRICTIONS
-- Docker 17.09 +
-- Valid SoapUI PRO floating license
-- License hosted on Protection floating license server and [configured as described in official docs](https://support.smartbear.com/readyapi/docs/general-info/licensing/activate/floating/configure-license-server.html).
-- Local project file
-- **Currently only supports flat XML projects (default type)**
-
-------
-## CLONE REPOSITORY
-``` sh
-$ git clone https://github.com/nate01776/soapuipro_docker.git
-$ cd ./soapui_docker
-```
+# Java
 
 ------
 ## BUILD
@@ -43,7 +21,7 @@ $ cd ./soapui_docker
   $ docker build \
       --build-arg ls_address=127.0.0.1 \
       --build-arg project_path=./readyapi_project.xml \
-      -t soapuiproject .
+      -t soapui:java .
 ```
 
 ------

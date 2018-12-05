@@ -1,24 +1,4 @@
-# SOAPUI PRO & DOCKER
-This branch is intended to support RHEL based execution in a container based environment. This is a *work in progress*, and the full feature set found in the SoapUI Testrunner has not been tested on the container version.
-
-This implementation of SoapUI and Docker requires building the project file into the container, and then passing arguments to tailor how it will run outside of the default full project execution. This means that dependencies on the host machine are kept to an absolute minimum (the intent being this will run in a dynamic infrastructure). Ideally, the image would support pulling as needed from a GIT repo as an alternative in the future.
-
-**This is not supported by Smartbear - please submit all feedback/bugs in this repository.**
-
-------
-## REQUIREMENTS & RESTRICTIONS
-- Docker 17.09 +
-- Valid SoapUI PRO floating license
-- License hosted on Protection floating license server and [configured as described in official docs](https://support.smartbear.com/readyapi/docs/general-info/licensing/activate/floating/configure-license-server.html).
-- Local project file
-- **Currently only supports flat XML projects (default type)**
-
-------
-## CLONE REPOSITORY
-``` sh
-$ git clone https://github.com/nate01776/soapuipro_docker.git
-$ cd ./soapui_docker
-```
+# RHEL
 
 ------
 ## BUILD
@@ -47,7 +27,7 @@ $ cd ./soapui_docker
       --build-arg project_path=./readyapi_project.xml \
       --build-arg sub-manager-username=awesomeLoginName \
       --build-arg sub-manager-pwd=superSecretPwd \
-      -t soapuiproject .
+      -t soapui:rhel .
 ```
 
 ------
