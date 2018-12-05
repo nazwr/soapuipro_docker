@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="9503140c-34d9-4ced-b9d0-7f348b85db51" created="2.4.0" activeEnvironment="Default environment" name="Project 2" resourceRoot="" updated="2.4.0 2018-06-04T12:31:42Z" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings/>
+  <con:interface xsi:type="con:RestService" id="455addee-4333-46b6-a1af-2479e03195af" wadlVersion="http://wadl.dev.java.net/2009/02" name="https://maps.googleapis.com" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <con:settings/>
+    <con:definitionCache type="TEXT" rootPart=""/>
+    <con:endpoints>
+      <con:endpoint>https://maps.googleapis.com</con:endpoint>
+    </con:endpoints>
+    <con:resource name="Json" path="/maps/api/geocode/json" id="8260f8f1-7bff-4921-848a-e4fd258c7795">
+      <con:settings/>
+      <con:parameters>
+        <con:parameter required="true">
+          <con:name>address</con:name>
+          <con:value>Boston</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>Boston</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="true">
+          <con:name>key</con:name>
+          <con:value/>
+          <con:style>QUERY</con:style>
+          <con:default/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="true">
+          <con:name>Authentication</con:name>
+          <con:value/>
+          <con:style>HEADER</con:style>
+          <con:default/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+      </con:parameters>
+      <con:method name="Json" id="38518064-180b-41c7-9745-e0e547508101" method="GET">
+        <con:settings/>
+        <con:parameters/>
+        <con:representation type="RESPONSE">
+          <con:mediaType>application/json; charset=UTF-8</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:element xmlns:json="https://maps.googleapis.com/maps/api/geocode/json">json:Response</con:element>
+        </con:representation>
+        <con:request name="Request 1" id="ee4da8ff-38df-45ae-b70a-337cfb8255ac" mediaType="application/json">
+          <con:settings>
+            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+          </con:settings>
+          <con:endpoint>https://maps.googleapis.com</con:endpoint>
+          <con:request/>
+          <con:originalUri>https://maps.googleapis.com/maps/api/geocode/json</con:originalUri>
+          <con:credentials>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:parameters>
+            <con:entry key="address" value="Austin"/>
+            <con:entry key="Authentication" value="123123"/>
+            <con:entry key="key" value="${#Project#apiKey}"/>
+          </con:parameters>
+          <con:parameterOrder>
+            <con:entry>address</con:entry>
+            <con:entry>key</con:entry>
+            <con:entry>Authentication</con:entry>
+          </con:parameterOrder>
+        </con:request>
+      </con:method>
+    </con:resource>
+  </con:interface>
+  <con:testSuite id="7619617a-0749-4f99-a6e3-3d982b6ec657" name="TestSuite 1">
+    <con:settings/>
+    <con:savedRecentRuns>1</con:savedRecentRuns>
+    <con:runType>SEQUENTIAL</con:runType>
+    <con:testCase id="2491db6e-3260-4965-9ad7-b603c27faca2" discardOkResults="true" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="TestCase 1" searchProperties="true" timeout="0">
+      <con:settings/>
+      <con:savedRecentRuns>1</con:savedRecentRuns>
+      <con:testStep type="restrequest" name="cityRequest" id="cf137e87-d953-4f2a-8cac-b2f27ce8d1dc">
+        <con:settings/>
+        <con:config service="https://maps.googleapis.com" resourcePath="/maps/api/geocode/json" methodName="Json" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="cityRequest" id="ee4da8ff-38df-45ae-b70a-337cfb8255ac" mediaType="application/json">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>https://maps.googleapis.com</con:endpoint>
+            <con:request/>
+            <con:originalUri>https://maps.googleapis.com/maps/api/geocode/json</con:originalUri>
+            <con:assertion type="JsonPath Match" id="05dbe53f-c7d8-4b11-830c-9545cd90c989" name="Match content of [long_name]">
+              <con:configuration>
+                <path>$['results'][0]['address_components'][3]['long_name']</path>
+                <content>United States</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters>
+              <con:entry key="address" value="London"/>
+              <con:entry key="Authentication" value=""/>
+              <con:entry key="key" value="${#Project#apiKey}"/>
+            </con:parameters>
+            <con:parameterOrder>
+              <con:entry>address</con:entry>
+              <con:entry>key</con:entry>
+              <con:entry>Authentication</con:entry>
+            </con:parameterOrder>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="stateRequest" id="2859cfd1-2fbf-4dcf-9d88-226eab6c299f">
+        <con:settings/>
+        <con:config service="https://maps.googleapis.com" resourcePath="/maps/api/geocode/json" methodName="Json" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="stateRequest" id="ee4da8ff-38df-45ae-b70a-337cfb8255ac" mediaType="application/json">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>https://maps.googleapis.com</con:endpoint>
+            <con:request/>
+            <con:originalUri>https://maps.googleapis.com/maps/api/geocode/json</con:originalUri>
+            <con:credentials>
+              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters>
+              <con:entry key="address" value="${cityRequest#Response#$['results'][0]['address_components'][2]['long_name']}"/>
+              <con:entry key="Authentication" value="${cityRequest#Response#$['results'][0]['geometry']['bounds']['northeast']['lat']}"/>
+              <con:entry key="key" value="${#Project#apiKey}"/>
+            </con:parameters>
+            <con:parameterOrder>
+              <con:entry>address</con:entry>
+              <con:entry>key</con:entry>
+              <con:entry>Authentication</con:entry>
+            </con:parameterOrder>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+      <con:reportParameters/>
+    </con:testCase>
+    <con:testCase id="cf29a623-730e-4f01-a1f9-d159cd9d01e3" discardOkResults="true" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="Copy of TestCase 1" searchProperties="true" timeout="0">
+      <con:settings/>
+      <con:savedRecentRuns>1</con:savedRecentRuns>
+      <con:testStep type="restrequest" name="cityRequest" id="53a1fa3d-9041-4ae5-84cc-cb1a937c41fe">
+        <con:settings/>
+        <con:config service="https://maps.googleapis.com" resourcePath="/maps/api/geocode/json" methodName="Json" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="cityRequest" id="ee4da8ff-38df-45ae-b70a-337cfb8255ac" mediaType="application/json">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>https://maps.googleapis.com</con:endpoint>
+            <con:request/>
+            <con:originalUri>https://maps.googleapis.com/maps/api/geocode/json</con:originalUri>
+            <con:assertion type="JsonPath Match" id="05dbe53f-c7d8-4b11-830c-9545cd90c989" name="Match content of [long_name]">
+              <con:configuration>
+                <path>$['results'][0]['address_components'][3]['long_name']</path>
+                <content>United States</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters>
+              <con:entry key="address" value="London"/>
+              <con:entry key="Authentication" value=""/>
+              <con:entry key="key" value="${#Project#apiKey}"/>
+            </con:parameters>
+            <con:parameterOrder>
+              <con:entry>address</con:entry>
+              <con:entry>key</con:entry>
+              <con:entry>Authentication</con:entry>
+            </con:parameterOrder>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="stateRequest" id="bdb9a434-4ace-447f-a60d-6009a2990228">
+        <con:settings/>
+        <con:config service="https://maps.googleapis.com" resourcePath="/maps/api/geocode/json" methodName="Json" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="stateRequest" id="ee4da8ff-38df-45ae-b70a-337cfb8255ac" mediaType="application/json">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>https://maps.googleapis.com</con:endpoint>
+            <con:request/>
+            <con:originalUri>https://maps.googleapis.com/maps/api/geocode/json</con:originalUri>
+            <con:credentials>
+              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters>
+              <con:entry key="address" value="${cityRequest#Response#$['results'][0]['address_components'][2]['long_name']}"/>
+              <con:entry key="Authentication" value="${cityRequest#Response#$['results'][0]['geometry']['bounds']['northeast']['lat']}"/>
+              <con:entry key="key" value="${#Project#apiKey}"/>
+            </con:parameters>
+            <con:parameterOrder>
+              <con:entry>address</con:entry>
+              <con:entry>key</con:entry>
+              <con:entry>Authentication</con:entry>
+            </con:parameterOrder>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+      <con:reportParameters/>
+    </con:testCase>
+    <con:testCase id="0c552f90-639a-4747-b88e-56077c208ad2" discardOkResults="true" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="Copy of Copy of TestCase 1" searchProperties="true" timeout="0">
+      <con:settings/>
+      <con:savedRecentRuns>1</con:savedRecentRuns>
+      <con:testStep type="restrequest" name="cityRequest" id="2a52f2e7-bb6a-495b-a64d-7a5e26ad61c8">
+        <con:settings/>
+        <con:config service="https://maps.googleapis.com" resourcePath="/maps/api/geocode/json" methodName="Json" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="cityRequest" id="ee4da8ff-38df-45ae-b70a-337cfb8255ac" mediaType="application/json">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>https://maps.googleapis.com</con:endpoint>
+            <con:request/>
+            <con:originalUri>https://maps.googleapis.com/maps/api/geocode/json</con:originalUri>
+            <con:assertion type="JsonPath Match" id="05dbe53f-c7d8-4b11-830c-9545cd90c989" name="Match content of [long_name]">
+              <con:configuration>
+                <path>$['results'][0]['address_components'][3]['long_name']</path>
+                <content>United States</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters>
+              <con:entry key="address" value="London"/>
+              <con:entry key="Authentication" value=""/>
+              <con:entry key="key" value="${#Project#apiKey}"/>
+            </con:parameters>
+            <con:parameterOrder>
+              <con:entry>address</con:entry>
+              <con:entry>key</con:entry>
+              <con:entry>Authentication</con:entry>
+            </con:parameterOrder>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="stateRequest" id="5c427ece-7aa5-4704-bd3b-244797dde98b">
+        <con:settings/>
+        <con:config service="https://maps.googleapis.com" resourcePath="/maps/api/geocode/json" methodName="Json" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="stateRequest" id="ee4da8ff-38df-45ae-b70a-337cfb8255ac" mediaType="application/json">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>https://maps.googleapis.com</con:endpoint>
+            <con:request/>
+            <con:originalUri>https://maps.googleapis.com/maps/api/geocode/json</con:originalUri>
+            <con:credentials>
+              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters>
+              <con:entry key="address" value="${cityRequest#Response#$['results'][0]['address_components'][2]['long_name']}"/>
+              <con:entry key="Authentication" value="${cityRequest#Response#$['results'][0]['geometry']['bounds']['northeast']['lat']}"/>
+              <con:entry key="key" value="${#Project#apiKey}"/>
+            </con:parameters>
+            <con:parameterOrder>
+              <con:entry>address</con:entry>
+              <con:entry>key</con:entry>
+              <con:entry>Authentication</con:entry>
+            </con:parameterOrder>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+      <con:reportParameters/>
+    </con:testCase>
+    <con:properties/>
+    <con:reportParameters/>
+  </con:testSuite>
+  <con:requirements/>
+  <con:properties>
+    <con:property>
+      <con:name>apiKey</con:name>
+      <con:value>AIzaSyD0C99bBuHC1Y7E0YLD7ZYzfJxoUof_cjo</con:value>
+    </con:property>
+    <con:property>
+      <con:name>dev_1</con:name>
+      <con:value/>
+    </con:property>
+  </con:properties>
+  <con:wssContainer/>
+  <con:databaseConnectionContainer/>
+  <con:jmsConnectionContainer/>
+  <con:oAuth2ProfileContainer/>
+  <con:oAuth1ProfileContainer/>
+  <con:reporting>
+    <con:reportTemplates/>
+    <con:xmlTemplates/>
+    <con:xmlTemplates/>
+    <con:parameters/>
+    <con:parameters/>
+  </con:reporting>
+  <con:reporting/>
+  <con:eventHandlers type="RequestFilter.filterRequest" name="RequestFilter.filterRequest">
+    <con:script>// Sample event script to add custom HTTP header to all outgoing REST, SOAP and HTTP(S) calls
+// This code is often used for adding custom authentication to SoapUI Pro tests
+
+// If hardcoding the token, uncomment and change line 5
+// def token = '4567'
+
+// If your token is parameterized in Project level custom property, uncomment line 8
+// def token = request.parent.testCase.testSuite.project.getProperty('auth_token').getValue()
+
+// To modify all outgoing calls, remove comments from lines 11 to 16
+// def headers = request.requestHeaders
+// if (headers.containsKey('auth_token2') == false) {
+//   headers.put('auth_token2', token)
+//   request.requestHeaders = headers
+// }</con:script>
+  </con:eventHandlers>
+  <con:eventHandlers type="TestRunListener.afterStep" name="TestRunListener.afterStep">
+    <con:script>// Save all test step results into files
+// Change the directory path in line 5 to a location where you want to store details
+// then uncomment lines 5 to 10
+
+// filePath = 'C:\\tempOutputDirectory\\'
+// fos = new FileOutputStream(filePath + testStepResult.testStep.label + '.txt', true)
+// pw = new PrintWriter(fos)
+// testStepResult.writeTo(pw)
+// pw.close()
+// fos.close()</con:script>
+  </con:eventHandlers>
+  <con:environment id="14c854a4-cce7-4b47-8855-ab6da0dada76" name="DEV">
+    <con:service type="REST" name="https://maps.googleapis.com">
+      <con:endpoint authProfile="Inherit From Parent" username="" password="" domain="" incomingWss="" outgoingWss="" wssTimeToLive="" wssType="" proxyHost="" proxyPort="" proxyUsername="" proxyPassword="">https://localhost:8080</con:endpoint>
+    </con:service>
+    <con:property>
+      <con:name>apiKey</con:name>
+      <con:value>AIzaSyD0C99bBuHC1Y7E0YLD7ZYzfJxoUof_cjo</con:value>
+    </con:property>
+    <con:property>
+      <con:name>dev_1</con:name>
+      <con:value>test</con:value>
+    </con:property>
+    <con:databaseConnectionContainer/>
+    <con:jmsConnectionContainer/>
+  </con:environment>
+  <con:authRepository/>
+  <con:tags/>
+</con:soapui-project>

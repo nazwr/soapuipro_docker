@@ -1,6 +1,5 @@
 # ///// INITIAL CONFIG /////
 # Linux image to run application on
-# FROM ubuntu:16.04
 FROM java:openjdk-8
 MAINTAINER Nathan Wright <nate01776@gmail.com>
 
@@ -9,8 +8,6 @@ ARG ls_address=127.0.0.1
 ARG project_path="" 
 ENV ls_address=$ls_address
 ENV project_path=$project_path
-
-# Update and add java package
 
 # ///// HANDLE READY API /////
 # Create unpack directory, move test script into test folder, license JAR into licensing
