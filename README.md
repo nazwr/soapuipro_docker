@@ -1,4 +1,5 @@
 # SOAPUI PRO & DOCKER
+
 This project was created to aid in the execution of SoapUI PRO tests in container based environments. This is a *work in progress*, and the full feature set found in the SoapUI Testrunner has not been tested on the container version.
 
 This implementation of SoapUI and Docker requires building the project file into the container, and then passing arguments to tailor how this will run outside of the default full project execution. More details can be found below.
@@ -23,57 +24,14 @@ $ cd ./soapui_docker
 ```
 
 ------
-## BUILD
-``` sh
-  $ docker build \
-      --build-arg ls_address=[server_address] \
-      --build-arg project_path=[project_path] \
-      -t [tag_name] .
-```
+## SETUP
 
-- **server_address (REQ)**: License server IP address or hostname
-- **project_path (REQ)**: Local path of project XML to be built into container
-- **tag_name**: Tag associated w/build (eg. soapuiproject).
-- ***The XML project file should be copied into the same repository the container will be built from***
-- *Build will typically take ~5 minutes depending on available resources*
+- This repository contains 3 folders w/Dockerfiles based off 3 different base images. They are all similar in footprint and run efficiency, but there is a significant build-time savings with the Java image (as it starts with the required dependencies). Once the image is built, there is very little difference outside of what is required by RAPI to run the project included in the build.
+- Time to build:
+    - Ubuntu: ~7 minutes
+    - RHEL: ~4 minutes
+    - Java: ~2 minutes
 
-
-### EXAMPLE
-```sh
-  $ docker build \
-      --build-arg ls_address=127.0.0.1 \
-      --build-arg project_path=./readyapi_project.xml \
-      -t soapuiproject .
-```
-
-------
-## RUN
-### AS FULL PROJECT
-```sh
-$ docker run [tag_name]
-```
-- **tag_name**: Same tag as from build step.
-
-### WITH ARGUMENTS
-```sh
-  $ docker run [tag_name] \
-      "[readyapi_arguments]" \
-      "./readyapi/project/run.xml"
-```
-- **tag_name**: Same tag as from build step. 
-- **readyapi_arguments**: Commands should be passed in as they would against the testrunner, these are mapped to the runner inside of the container and executed. Ensure the full list - including the project run file - is wrapped as a string.
-
-### EXAMPLE
-```sh
-  $ docker run soapuiproject \
-      "-sTestSuite 1" \
-      "-cTestCase 1" \
-      "-EDefault environment" \
-      "./readyapi/project/run.xml"
-```
-[More information on the associated arguments can be found in the official documentation.](https://support.smartbear.com/readyapi/docs/soapui/running/automating/cli.html)
-
-------
 
 ## FUTURE
 - Support packaged projects instead of XML files - this will allow inclusion of Datasources in some of the standard types, as well as potentially composite projects.
