@@ -27,7 +27,7 @@
       --build-arg project_path=./readyapi_project.xml \
       --build-arg sub-manager-username=awesomeLoginName \
       --build-arg sub-manager-pwd=superSecretPwd \
-      -t soapui:rhel .
+      -t soapui:project_3 .
 ```
 
 ------
@@ -49,7 +49,7 @@ $ docker run [tag_name]
 
 ### EXAMPLE
 ```sh
-  $ docker run soapuiproject \
+  $ docker run soapui:project_3 \
       "-sTestSuite 1" \
       "-cTestCase 1" \
       "-EDefault environment" \
