@@ -21,7 +21,7 @@
   $ docker build \
       --build-arg ls_address=127.0.0.1 \
       --build-arg project_path=./readyapi_project.xml \
-      -t soapui:java .
+      -t soapui:project_2 .
 ```
 
 ------
@@ -43,7 +43,7 @@ $ docker run [tag_name]
 
 ### EXAMPLE
 ```sh
-  $ docker run soapuiproject \
+  $ docker run soapui:project_2 \
       "-sTestSuite 1" \
       "-cTestCase 1" \
       "-EDefault environment" \
