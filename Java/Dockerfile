@@ -1,5 +1,5 @@
 # ///// INITIAL CONFIG /////
-# Linux image to run application on
+# Base image to run application on
 FROM java:openjdk-8
 MAINTAINER Nathan Wright <nate01776@gmail.com>
 
@@ -17,7 +17,7 @@ COPY ./licensing/ready-api-license-manager-1.2.2.jar ./readyapi/licensing/
 COPY ./startup_test/basic-project-readyapi-project.xml ./readyapi/startup_test/
 COPY ${project_path} ./readyapi/project/run.xml
 
-# Download 2.3.0 tarball from Smartbear + unpack
+# Download 2.X.0 tarball from Smartbear + unpack
 ADD http://dl.eviware.com/ready-api/2.5.0/ReadyAPI-x64-2.5.0.sh ./readyapi
 RUN chmod +x ./readyapi/ReadyAPI-x64-2.5.0.sh
 RUN ./readyapi/ReadyAPI-x64-2.5.0.sh -q -dir ./ReadyAPI-2.5.0
