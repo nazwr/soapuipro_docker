@@ -25,15 +25,9 @@
   $ docker build \
       --build-arg ls_address=127.0.0.1 \
       --build-arg project_path=./readyapi_project.xml \
-<<<<<<< HEAD
       --build-arg sub_manager_username=awesomeLoginName \
       --build-arg sub_manager_pwd=superSecretPwd \
       -t soapui:rhel .
-=======
-      --build-arg sub-manager-username=awesomeLoginName \
-      --build-arg sub-manager-pwd=superSecretPwd \
-      -t soapui:project_3 .
->>>>>>> 5af1a75b1b1039c9a8f06aad268a7b92ee36a378
 ```
 
 ------
