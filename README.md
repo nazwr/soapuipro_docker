@@ -4,6 +4,8 @@ This project was created to aid in the execution of SoapUI PRO tests in containe
 
 This implementation of SoapUI and Docker requires building the project file into the container, and then passing arguments to tailor how this will run outside of the default full project execution. A library of images could then be built/maintained, and pulled in as needed for execution by a pipeline or larger process.
 
+If you are interested in other base image versions of this repository - there is a branch supporting RHEL and (potentially) some others down the line.
+
 **This is not supported by Smartbear**
 
 ------
