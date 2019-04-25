@@ -1,0 +1,1360 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="f8d2cdda-c704-4bd9-bd76-f0739472e583" created="2.6.0" activeEnvironment="remote_actual_v2" name="smart-calculator" resourceRoot="${projectDir}" updated="2.6.0 2019-01-14T14:47:06Z" encryptionMode="Not encrypted" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="f8d2cdda-c704-4bd9-bd76-f0739472e583fileName">smart-calculator</con:setting>
+    <con:setting id="com.eviware.soapui.impl.wsdl.actions.iface.tools.soapui.ProTestRunnerUIAction@values-local"><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  <con:entry key="Report Format(s)" value="XML"/>
+  <con:entry key="Host:Port" value=""/>
+  <con:entry key="Export JUnit Results" value="true"/>
+  <con:entry key="Export All" value="true"/>
+  <con:entry key="Save After" value="false"/>
+  <con:entry key="Slack Channel(s)" value=""/>
+  <con:entry key="Add Settings" value="false"/>
+  <con:entry key="WSS Password Type" value=""/>
+  <con:entry key="Endpoint" value=""/>
+  <con:entry key="Test Suite Tags" value=""/>
+  <con:entry key="Select Report Type" value="JUnit-Style report for automation"/>
+  <con:entry key="System Properties" value=""/>
+  <con:entry key="Test Suite" value="&lt;all>"/>
+  <con:entry key="Run in-process" value="false"/>
+  <con:entry key="Password" value=""/>
+  <con:entry key="Print Report" value="true"/>
+  <con:entry key="Open Report" value="false"/>
+  <con:entry key="Test Case Tags" value=""/>
+  <con:entry key="Export JUnit Results with test properties" value="false"/>
+  <con:entry key="Global Properties" value=""/>
+  <con:entry key="Project Properties" value=""/>
+  <con:entry key="Test Case" value="&lt;all>"/>
+  <con:entry key="Slack Access Token" value=""/>
+  <con:entry key="Project Password" value=""/>
+  <con:entry key="Username" value=""/>
+  <con:entry key="user-settings.xml Password" value=""/>
+  <con:entry key="TestRunner Path" value="C:\Program Files\SmartBear\ReadyAPI-2.6.0\bin"/>
+  <con:entry key="Environment" value="Default environment"/>
+  <con:entry key="Coverage Report" value="false"/>
+  <con:entry key="Enable UI" value="false"/>
+  <con:entry key="Root Folder" value="${WORKSPACE}"/>
+  <con:entry key="Ignore Errors" value="false"/>
+  <con:entry key="Domain" value=""/>
+  <con:entry key="Tool Args" value=""/>
+  <con:entry key="Save Project" value="false"/>
+</xml-fragment>]]></con:setting>
+    <con:setting id="com.eviware.soapui.impl.wsdl.actions.iface.tools.soapui.LoadUITestRunnerUIAction@values-local"><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  <con:entry key="Test Duration Limit" value=""/>
+  <con:entry key="" value=""/>
+  <con:entry key="Abort Requests" value=""/>
+  <con:entry key="Report Format" value="PDF"/>
+  <con:entry key="Local Mode" value="false"/>
+  <con:entry key="Agents" value=""/>
+  <con:entry key="JUnit-Style Results" value="false"/>
+  <con:entry key="Arriving/Base VUs" value=""/>
+  <con:entry key="Statistics" value=""/>
+  <con:entry key="Global Properties" value=""/>
+  <con:entry key="Failure Limit" value=""/>
+  <con:entry key="Project Properties" value=""/>
+  <con:entry key="SelectedStatistics" value=""/>
+  <con:entry key="TestRunner Path" value=""/>
+  <con:entry key="Target Number Limit" value=""/>
+  <con:entry key="Environment" value="Default environment"/>
+  <con:entry key="ExportStatistics" value=""/>
+  <con:entry key="Root Folder" value="C:\Users\nathan.wright\Desktop"/>
+  <con:entry key="Group results" value="false"/>
+  <con:entry key="System Properties" value=""/>
+  <con:entry key="Create Reports" value="true"/>
+  <con:entry key="Save Project" value="false"/>
+  <con:entry key="LoadUITest" value="Load Test 1"/>
+</xml-fragment>]]></con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:requirements/>
+  <con:properties/>
+  <con:wssContainer/>
+  <con:databaseConnectionContainer/>
+  <con:jmsConnectionContainer/>
+  <con:oAuth2ProfileContainer/>
+  <con:oAuth1ProfileContainer/>
+  <con:reporting>
+    <con:xmlTemplates xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+    <con:parameters/>
+  </con:reporting>
+  <con:eventHandlers type="RequestFilter.filterRequest" name="RequestFilter.filterRequest">
+    <con:script>// Sample event script to add custom HTTP header to all outgoing REST, SOAP and HTTP(S) calls
+// This code is often used for adding custom authentication to SoapUI Pro tests
+
+// If hardcoding the token, uncomment and change line 5
+// def token = '4567'
+
+// If your token is parameterized in Project level custom property, uncomment line 8
+// def token = request.parent.testCase.testSuite.project.getProperty('auth_token').getValue()
+
+// To modify all outgoing calls, remove comments from lines 11 to 16
+// def headers = request.requestHeaders
+// if (headers.containsKey('auth_token2') == false) {
+//   headers.put('auth_token2', token)
+//   request.requestHeaders = headers
+// }</con:script>
+  </con:eventHandlers>
+  <con:eventHandlers type="TestRunListener.afterStep" name="TestRunListener.afterStep">
+    <con:script>// Save all test step results into files
+// Change the directory path in line 5 to a location where you want to store details
+// then uncomment lines 5 to 10
+
+// filePath = 'C:\\tempOutputDirectory\\'
+// fos = new FileOutputStream(filePath + testStepResult.testStep.label + '.txt', true)
+// pw = new PrintWriter(fos)
+// testStepResult.writeTo(pw)
+// pw.close()
+// fos.close()</con:script>
+  </con:eventHandlers>
+  <con:environment id="3df49086-7178-4ae7-b0fe-d483ebe7988b" name="local_dev">
+    <con:service type="REST" name="Smartbear Calculator">
+      <con:endpoint authProfile="No Authorization">http://34.222.48.79:8050</con:endpoint>
+    </con:service>
+    <con:databaseConnectionContainer/>
+    <con:jmsConnectionContainer/>
+  </con:environment>
+  <con:environment id="cc97aab8-9e01-400e-99ce-ef4d04ce1b86" name="remote_actual_v1">
+    <con:service type="REST" name="Smartbear Calculator">
+      <con:endpoint authProfile="No Authorization" proxyHost="" proxyPort="" proxyUsername="" proxyPassword="">http://34.215.16.155:8050</con:endpoint>
+    </con:service>
+    <con:databaseConnectionContainer/>
+    <con:jmsConnectionContainer/>
+  </con:environment>
+  <con:environment id="fa27b7ff-e69f-4aab-b5d6-b84d2fdb8a27" name="aws_gateway">
+    <con:service type="REST" name="Smartbear Calculator">
+      <con:endpoint authProfile="No Authorization" proxyHost="" proxyPort="" proxyUsername="" proxyPassword="">https://tzks159w5f.execute-api.us-west-2.amazonaws.com/QA</con:endpoint>
+    </con:service>
+    <con:databaseConnectionContainer/>
+    <con:jmsConnectionContainer/>
+  </con:environment>
+  <con:environment id="0347021d-92b7-47e4-9379-4797d4a703c9" name="remote_actual_v2">
+    <con:service type="REST" name="Smartbear Calculator">
+      <con:endpoint authProfile="No Authorization" proxyHost="" proxyPort="" proxyUsername="" proxyPassword="">http://34.219.61.170:8050</con:endpoint>
+    </con:service>
+    <con:databaseConnectionContainer/>
+    <con:jmsConnectionContainer/>
+  </con:environment>
+  <con:environment id="19ef152b-6806-465d-be73-869bfad44f62" name="3scale">
+    <con:service type="REST" name="Smartbear Calculator">
+      <con:endpoint authProfile="No Authorization" proxyHost="" proxyPort="" proxyUsername="" proxyPassword="">https://api-2445582730762.staging.gw.apicast.io:443</con:endpoint>
+    </con:service>
+    <con:databaseConnectionContainer/>
+    <con:jmsConnectionContainer/>
+  </con:environment>
+  <con:virtServer>
+    <con:name>AWS Host</con:name>
+    <con:url>https://34.215.246.30:9090</con:url>
+  </con:virtServer>
+  <con:authRepository/>
+  <con:environmentSpec>
+    <con:entry environmentId="0347021d-92b7-47e4-9379-4797d4a703c9">
+      <con:authProfile>No Authorization</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="19ef152b-6806-465d-be73-869bfad44f62">
+      <con:authProfile>No Authorization</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
+  <con:tags/>
+  <con:interface xsi:type="con:RestService" id="58da7146-a7ef-4d40-adca-7139ea1f3a50" name="Smartbear Calculator" type="rest_ex" wadlVersion="https://swagger.io/swagger2/specification" definitionUrl="https://api.swaggerhub.com/apis/Design-Swagger/smart-calculator/1.0.0/swagger.json" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <con:description>A simple calculator for internal consumption</con:description>
+    <con:settings>
+      <con:setting id="58da7146-a7ef-4d40-adca-7139ea1f3a50fileName">Smartbear-Calculator</con:setting>
+    </con:settings>
+    <con:definitionCache type="TEXT" rootPart="https://api.swaggerhub.com/apis/Design-Swagger/smart-calculator/1.0.0/swagger.json">
+      <con:part>
+        <con:url>https://api.swaggerhub.com/apis/Design-Swagger/smart-calculator/1.0.0/swagger.json</con:url>
+        <con:content>{"swagger":"2.0","info":{"description":"A simple calculator for internal consumption","version":"1.0.0","title":"Smartbear Calculator","contact":{"email":"math.whizz@smartbear.com"},"license":{"name":"Apache 2.0","url":"http://www.apache.org/licenses/LICENSE-2.0.html"}},"schemes":["http","https"],"paths":{"/add":{"post":{"summary":"Add two numbers together.","operationId":"addInput","produces":["application/json"],"parameters":[{"name":"inputOne","in":"query","description":"First input to resolve","required":true,"type":"string"},{"name":"inputTwo","in":"query","description":"First input to resolve","required":true,"type":"string"}],"responses":{"200":{"description":"Successful operation.","schema":{"$ref":"https://api.swaggerhub.com/domains/Design-Swagger/calculator-domain/1.0.0#/definitions/standardResponse"}},"404":{"description":"Bad input.","schema":{"$ref":"https://api.swaggerhub.com/domains/Design-Swagger/calculator-domain/1.0.0#/definitions/standardError"}}}}},"/subtract":{"post":{"summary":"Subtract inputOne from inputTwo","operationId":"subtractInput","produces":["application/json"],"parameters":[{"name":"inputOne","in":"query","description":"First input to resolve","required":true,"type":"string"},{"name":"inputTwo","in":"query","description":"First input to resolve","required":true,"type":"string"}],"responses":{"200":{"description":"Successful operation.","schema":{"$ref":"https://api.swaggerhub.com/domains/Design-Swagger/calculator-domain/1.0.0#/definitions/standardResponse"}},"404":{"description":"Bad input.","schema":{"$ref":"https://api.swaggerhub.com/domains/Design-Swagger/calculator-domain/1.0.0#/definitions/standardError"}}}}},"/multiply":{"post":{"summary":"Subtract inputOne from inputTwo","operationId":"multiplyInput","produces":["application/json"],"parameters":[{"name":"inputOne","in":"query","description":"First input to resolve","required":true,"type":"string"},{"name":"inputTwo","in":"query","description":"First input to resolve","required":true,"type":"string"}],"responses":{"200":{"description":"Successful operation.","schema":{"$ref":"https://api.swaggerhub.com/domains/Design-Swagger/calculator-domain/1.0.0#/definitions/standardResponse"}},"404":{"description":"Bad input.","schema":{"$ref":"https://api.swaggerhub.com/domains/Design-Swagger/calculator-domain/1.0.0#/definitions/standardError"}}}}}},"x-aws-api-id":"tzks159w5f"}</con:content>
+        <con:type>https://swagger.io/swagger2/specification</con:type>
+      </con:part>
+      <con:part>
+        <con:url>https://api.swaggerhub.com/domains/Design-Swagger/calculator-domain/1.0.0</con:url>
+        <con:content>{"info":{"description":"This is a sample Domain","version":"1.0.0","title":"Calculator Domain"},"definitions":{"standardResponse":{"type":"object","required":["result"],"properties":{"result":{"type":"string","example":"1234567890"}}},"standardError":{"type":"object","required":["message"],"properties":{"message":{"type":"string","example":"Error in request"}}}}}</con:content>
+        <con:type>https://swagger.io/swagger2/specification</con:type>
+      </con:part>
+    </con:definitionCache>
+    <con:endpoints>
+      <con:endpoint>http://localhost:8088/</con:endpoint>
+      <con:endpoint>http://localhost:8089/</con:endpoint>
+      <con:endpoint>https://api.swaggerhub.com</con:endpoint>
+    </con:endpoints>
+    <con:environmentSpec>
+      <con:entry environmentId="0347021d-92b7-47e4-9379-4797d4a703c9">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="19ef152b-6806-465d-be73-869bfad44f62">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+    </con:environmentSpec>
+    <con:resource name="/add" path="/add" id="bd273cc9-f6cf-496b-95b2-ad5735f0ebad">
+      <con:settings>
+        <con:setting id="bd273cc9-f6cf-496b-95b2-ad5735f0ebadfileName">%2Fadd</con:setting>
+      </con:settings>
+      <con:parameters/>
+      <con:method name="addInput" id="1aedc849-e3f4-46e5-bac1-e8c950963d88" method="POST">
+        <con:description>add two numbers together</con:description>
+        <con:settings/>
+        <con:parameters>
+          <con:parameter required="true">
+            <con:name>inputOne</con:name>
+            <con:value/>
+            <con:style>QUERY</con:style>
+            <con:default/>
+            <con:description>First input to resolve</con:description>
+          </con:parameter>
+          <con:parameter required="true">
+            <con:name>inputTwo</con:name>
+            <con:value/>
+            <con:style>QUERY</con:style>
+            <con:default/>
+            <con:description>First input to resolve</con:description>
+          </con:parameter>
+          <con:parameter required="true">
+            <con:name>user_key</con:name>
+            <con:value/>
+            <con:style>QUERY</con:style>
+            <con:default/>
+          </con:parameter>
+        </con:parameters>
+        <con:representation type="RESPONSE">
+          <con:mediaType>application/json</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:sampleContent>{
+  "result" : 0
+}</con:sampleContent>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType>application/json</con:mediaType>
+          <con:status>404</con:status>
+          <con:params/>
+          <con:sampleContent>{
+  "message" : "string"
+}</con:sampleContent>
+        </con:representation>
+        <con:request name="Request 1" id="c6bf5c7d-6272-479b-b423-9d6bfb1a653f" mediaType="application/json" postQueryString="false">
+          <con:settings>
+            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+          </con:settings>
+          <con:endpoint>http://34.222.48.79:8050</con:endpoint>
+          <con:request/>
+          <con:originalUri>http://18.237.105.202/add</con:originalUri>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:jmsPropertyConfig/>
+          <con:parameters>
+            <con:entry key="inputOne" value="35"/>
+            <con:entry key="user_key" value="b0da5927e08cfe925f4107186c7fa34a"/>
+            <con:entry key="inputTwo" value="20"/>
+          </con:parameters>
+          <con:parameterOrder>
+            <con:entry>inputOne</con:entry>
+            <con:entry>inputTwo</con:entry>
+            <con:entry>user_key</con:entry>
+          </con:parameterOrder>
+          <con:environmentSpec>
+            <con:entry environmentId="0347021d-92b7-47e4-9379-4797d4a703c9">
+              <con:authProfile>Inherit From Parent</con:authProfile>
+            </con:entry>
+            <con:entry environmentId="19ef152b-6806-465d-be73-869bfad44f62">
+              <con:authProfile>Inherit From Parent</con:authProfile>
+            </con:entry>
+          </con:environmentSpec>
+        </con:request>
+        <con:environmentSpec>
+          <con:entry environmentId="0347021d-92b7-47e4-9379-4797d4a703c9">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="19ef152b-6806-465d-be73-869bfad44f62">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:method>
+      <con:environmentSpec>
+        <con:entry environmentId="0347021d-92b7-47e4-9379-4797d4a703c9">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="19ef152b-6806-465d-be73-869bfad44f62">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
+    </con:resource>
+    <con:resource name="/multiply" path="/multiply" id="2d9adcc0-b0e7-4452-ac80-f2bc08fea4d6">
+      <con:settings>
+        <con:setting id="2d9adcc0-b0e7-4452-ac80-f2bc08fea4d6fileName">%2Fmultiply</con:setting>
+      </con:settings>
+      <con:parameters/>
+      <con:method name="multiplyInput" id="bb4ebff1-d379-402e-b214-00c3ea5962d2" method="POST">
+        <con:settings/>
+        <con:parameters>
+          <con:parameter>
+            <con:name>inputOne</con:name>
+            <con:value/>
+            <con:style>QUERY</con:style>
+            <con:default/>
+          </con:parameter>
+          <con:parameter>
+            <con:name>inputTwo</con:name>
+            <con:value/>
+            <con:style>QUERY</con:style>
+            <con:default/>
+          </con:parameter>
+        </con:parameters>
+        <con:representation type="RESPONSE">
+          <con:mediaType>application/json</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType>application/json</con:mediaType>
+          <con:status>404</con:status>
+          <con:params/>
+        </con:representation>
+        <con:request name="Request 1" id="02185df2-489c-42ef-ba38-ad68bba03d9c" mediaType="application/json" postQueryString="false">
+          <con:settings>
+            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+          </con:settings>
+          <con:endpoint>http://localhost:8088/</con:endpoint>
+          <con:request/>
+          <con:originalUri>https://tzks159w5f.execute-api.us-west-2.amazonaws.com/QA/multiply</con:originalUri>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:jmsPropertyConfig/>
+          <con:parameters>
+            <con:entry key="inputOne" value="15"/>
+            <con:entry key="inputTwo" value="15"/>
+          </con:parameters>
+          <con:environmentSpec>
+            <con:entry environmentId="19ef152b-6806-465d-be73-869bfad44f62">
+              <con:authProfile>Inherit From Parent</con:authProfile>
+            </con:entry>
+          </con:environmentSpec>
+        </con:request>
+        <con:environmentSpec>
+          <con:entry environmentId="19ef152b-6806-465d-be73-869bfad44f62">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:method>
+      <con:environmentSpec>
+        <con:entry environmentId="19ef152b-6806-465d-be73-869bfad44f62">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
+    </con:resource>
+    <con:resource name="/subtract" path="/subtract" id="a1f1af4f-df61-4ed9-9df1-6fa6a5e1c86b">
+      <con:settings>
+        <con:setting id="a1f1af4f-df61-4ed9-9df1-6fa6a5e1c86bfileName">%2Fsubtract</con:setting>
+      </con:settings>
+      <con:parameters/>
+      <con:method name="subtractInput" id="dd3c9c95-eb90-4508-b2c1-9771edf7c118" method="POST">
+        <con:description>Subtract inputOne from inputTwo</con:description>
+        <con:settings/>
+        <con:parameters>
+          <con:parameter required="true">
+            <con:name>inputOne</con:name>
+            <con:value/>
+            <con:style>QUERY</con:style>
+            <con:default/>
+            <con:description>First input to resolve</con:description>
+          </con:parameter>
+          <con:parameter required="true">
+            <con:name>inputTwo</con:name>
+            <con:value/>
+            <con:style>QUERY</con:style>
+            <con:default/>
+            <con:description>First input to resolve</con:description>
+          </con:parameter>
+        </con:parameters>
+        <con:representation type="RESPONSE">
+          <con:mediaType>application/json</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:sampleContent>{
+  "result" : 0
+}</con:sampleContent>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType>application/json</con:mediaType>
+          <con:status>404</con:status>
+          <con:params/>
+          <con:sampleContent>{
+  "message" : "string"
+}</con:sampleContent>
+        </con:representation>
+        <con:request name="Request 1" id="cc518503-9395-48b8-bd2e-0686a78379f3" mediaType="application/json" postQueryString="false">
+          <con:settings>
+            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+          </con:settings>
+          <con:endpoint>https://api.swaggerhub.com</con:endpoint>
+          <con:request/>
+          <con:originalUri>https://api.swaggerhub.com/subtract</con:originalUri>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:jmsPropertyConfig/>
+          <con:parameters>
+            <con:entry key="inputOne" value="20"/>
+            <con:entry key="inputTwo" value="5"/>
+          </con:parameters>
+          <con:environmentSpec>
+            <con:entry environmentId="0347021d-92b7-47e4-9379-4797d4a703c9">
+              <con:authProfile>Inherit From Parent</con:authProfile>
+            </con:entry>
+            <con:entry environmentId="19ef152b-6806-465d-be73-869bfad44f62">
+              <con:authProfile>Inherit From Parent</con:authProfile>
+            </con:entry>
+          </con:environmentSpec>
+        </con:request>
+        <con:environmentSpec>
+          <con:entry environmentId="0347021d-92b7-47e4-9379-4797d4a703c9">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="19ef152b-6806-465d-be73-869bfad44f62">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:method>
+      <con:environmentSpec>
+        <con:entry environmentId="0347021d-92b7-47e4-9379-4797d4a703c9">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="19ef152b-6806-465d-be73-869bfad44f62">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
+    </con:resource>
+    <con:resource name="status" path="/status" id="55eb9ecd-ec7d-4995-90aa-e472c82a7665">
+      <con:settings>
+        <con:setting id="55eb9ecd-ec7d-4995-90aa-e472c82a7665fileName">status</con:setting>
+      </con:settings>
+      <con:parameters/>
+      <con:method name="Method 1" id="bba813e8-ccb0-49c0-acfc-c56427d31b48" method="GET">
+        <con:settings/>
+        <con:parameters>
+          <con:parameter required="true">
+            <con:name>user_key</con:name>
+            <con:value/>
+            <con:style>QUERY</con:style>
+            <con:default/>
+          </con:parameter>
+        </con:parameters>
+        <con:request name="Request 1" id="cf75974a-f2c3-4823-ae1a-2fee8fc74e69" mediaType="application/json">
+          <con:settings>
+            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+          </con:settings>
+          <con:endpoint>http://localhost:8088/</con:endpoint>
+          <con:request/>
+          <con:originalUri>http://localhost/status</con:originalUri>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:jmsPropertyConfig/>
+          <con:parameters>
+            <entry key="user_key" value="b0da5927e08cfe925f4107186c7fa34a" xmlns="http://eviware.com/soapui/config"/>
+          </con:parameters>
+          <con:parameterOrder>
+            <con:entry>user_key</con:entry>
+          </con:parameterOrder>
+        </con:request>
+      </con:method>
+    </con:resource>
+  </con:interface>
+  <con:testSuite id="180c05b5-8277-4752-94b7-b7f82faaeff5" name="v1 TestSuite">
+    <con:description>The test suite generated for the REST service [Smartbear Calculator]</con:description>
+    <con:settings>
+      <con:setting id="180c05b5-8277-4752-94b7-b7f82faaeff5fileName">v1-TestSuite</con:setting>
+    </con:settings>
+    <con:savedRecentRuns>1</con:savedRecentRuns>
+    <con:runType>SEQUENTIAL</con:runType>
+    <con:properties/>
+    <con:reportParameters/>
+    <con:environmentSpec>
+      <con:entry environmentId="0347021d-92b7-47e4-9379-4797d4a703c9">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="19ef152b-6806-465d-be73-869bfad44f62">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+    </con:environmentSpec>
+    <con:testCase id="c8660cce-7780-467e-b857-51db06f35d30" discardOkResults="false" failOnError="false" failTestCaseOnErrors="true" keepSession="false" name="/add TestCase" searchProperties="true" timeout="0" wsrmEnabled="false" wsrmVersion="1.0" wsrmAckTo="" amfAuthorisation="false" amfEndpoint="" amfLogin="" amfPassword="">
+      <con:description>The test case generated for the REST resource [/add] located at [/add]</con:description>
+      <con:settings>
+        <con:setting id="c8660cce-7780-467e-b857-51db06f35d30fileName">%2Fadd-TestCase</con:setting>
+      </con:settings>
+      <con:savedRecentRuns>1</con:savedRecentRuns>
+      <con:testStep type="datasource" name="DataSource" id="5b734283-946f-4dda-bccc-c84323e41efd">
+        <con:settings/>
+        <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:dataSource type="Data Generator">
+            <con:configuration>
+              <generatedDataCount>10</generatedDataCount>
+              <generatorsTotalNumber>2</generatorsTotalNumber>
+              <lastSelectedProperty>1</lastSelectedProperty>
+              <GeneratorType0>INT</GeneratorType0>
+              <PropertyName0>randomInputOne</PropertyName0>
+              <repetitionCountrandomInputOne>0</repetitionCountrandomInputOne>
+              <repeatValuesrandomInputOne>false</repeatValuesrandomInputOne>
+              <IntegerDataGeneratorMinValuerandomInputOne>1</IntegerDataGeneratorMinValuerandomInputOne>
+              <IntegerDataGeneratorMaxValuerandomInputOne>100</IntegerDataGeneratorMaxValuerandomInputOne>
+              <IntegerDataGeneratorStepValuerandomInputOne>1</IntegerDataGeneratorStepValuerandomInputOne>
+              <IntegerDataGeneratorConsequentValuesrandomInputOne>false</IntegerDataGeneratorConsequentValuesrandomInputOne>
+              <GeneratorType1>INT</GeneratorType1>
+              <PropertyName1>randomInputTwo</PropertyName1>
+              <repetitionCountrandomInputTwo>0</repetitionCountrandomInputTwo>
+              <repeatValuesrandomInputTwo>false</repeatValuesrandomInputTwo>
+              <IntegerDataGeneratorMinValuerandomInputTwo>1</IntegerDataGeneratorMinValuerandomInputTwo>
+              <IntegerDataGeneratorMaxValuerandomInputTwo>100</IntegerDataGeneratorMaxValuerandomInputTwo>
+              <IntegerDataGeneratorStepValuerandomInputTwo>1</IntegerDataGeneratorStepValuerandomInputTwo>
+              <IntegerDataGeneratorConsequentValuesrandomInputTwo>false</IntegerDataGeneratorConsequentValuesrandomInputTwo>
+              <escapeSpaceSequence/>
+            </con:configuration>
+          </con:dataSource>
+          <con:shared>true</con:shared>
+          <con:restartShared>true</con:restartShared>
+          <con:property>randomInputOne</con:property>
+          <con:property>randomInputTwo</con:property>
+          <con:startRow/>
+          <con:endRow/>
+          <con:recordsPerIteration>1</con:recordsPerIteration>
+          <con:completeLastOperation>true</con:completeLastOperation>
+          <con:trimValues>false</con:trimValues>
+          <con:entitizeValues>false</con:entitizeValues>
+          <con:restartOnRun>true</con:restartOnRun>
+          <con:expandProperties>false</con:expandProperties>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="Request 1" id="d028a520-4c0e-4f5d-9402-9147ef7b0255">
+        <con:settings/>
+        <con:config service="Smartbear Calculator" resourcePath="/add" methodName="addInput" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Request 1" id="c6bf5c7d-6272-479b-b423-9d6bfb1a653f" mediaType="application/json" postQueryString="false">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>https://api.swaggerhub.com</con:endpoint>
+            <con:request/>
+            <con:originalUri>http://18.237.105.202/add</con:originalUri>
+            <con:assertion type="JsonPath Existence Match" id="748951c0-0bd9-4a0f-9418-ed6714332f1b" name="Check for existence of [result]">
+              <con:configuration>
+                <path>$['result']</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="JsonPath RegEx Match" id="82a75f67-3ced-4510-a479-24a45a34a239" name="Match content of [result] using RegEx">
+              <con:configuration>
+                <path>$['result']</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+                <regEx>^[0-9]*$</regEx>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters>
+              <con:entry key="inputOne" value="${DataSource#randomInputOne}"/>
+              <con:entry key="user_key" value=""/>
+              <con:entry key="inputTwo" value="${DataSource#randomInputTwo}"/>
+            </con:parameters>
+            <con:parameterOrder>
+              <con:entry>inputOne</con:entry>
+              <con:entry>inputTwo</con:entry>
+              <con:entry>user_key</con:entry>
+            </con:parameterOrder>
+            <con:environmentSpec>
+              <con:entry environmentId="0347021d-92b7-47e4-9379-4797d4a703c9">
+                <con:authProfile>Inherit From Parent</con:authProfile>
+              </con:entry>
+              <con:entry environmentId="19ef152b-6806-465d-be73-869bfad44f62">
+                <con:authProfile>Inherit From Parent</con:authProfile>
+              </con:entry>
+            </con:environmentSpec>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="datasourceloop" name="DataSource Loop" id="b5fc39ec-b84b-4f75-b849-1985a856ff65">
+        <con:settings/>
+        <con:config>
+          <dataSourceStep>DataSource</dataSourceStep>
+          <targetStep>Request 1</targetStep>
+          <discardResults>true</discardResults>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+      <con:reportParameters/>
+      <con:breakPoints>
+        <con:testStepId>5b734283-946f-4dda-bccc-c84323e41efd</con:testStepId>
+        <con:status>NONE</con:status>
+        <con:properties/>
+      </con:breakPoints>
+      <con:breakPoints>
+        <con:testStepId>b5fc39ec-b84b-4f75-b849-1985a856ff65</con:testStepId>
+        <con:status>NONE</con:status>
+        <con:properties/>
+      </con:breakPoints>
+      <con:environmentSpec>
+        <con:entry environmentId="0347021d-92b7-47e4-9379-4797d4a703c9">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="19ef152b-6806-465d-be73-869bfad44f62">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
+    </con:testCase>
+    <con:testCase id="5e635c33-74b2-4226-8a77-75886d453cbf" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="/subtract TestCase" searchProperties="true" timeout="0">
+      <con:description>The test case generated for the REST resource [/subtract] located at [/subtract]</con:description>
+      <con:settings>
+        <con:setting id="5e635c33-74b2-4226-8a77-75886d453cbffileName">%2Fsubtract-TestCase</con:setting>
+      </con:settings>
+      <con:testStep type="datasource" name="DataSource" id="88ae39d9-b2f8-4425-9958-b6eccd2d03d8">
+        <con:settings/>
+        <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:dataSource type="Data Generator">
+            <con:configuration>
+              <generatedDataCount>10</generatedDataCount>
+              <generatorsTotalNumber>2</generatorsTotalNumber>
+              <lastSelectedProperty>1</lastSelectedProperty>
+              <GeneratorType0>INT</GeneratorType0>
+              <PropertyName0>randomInputOne</PropertyName0>
+              <repetitionCountrandomInputOne>0</repetitionCountrandomInputOne>
+              <repeatValuesrandomInputOne>false</repeatValuesrandomInputOne>
+              <IntegerDataGeneratorMinValuerandomInputOne>1</IntegerDataGeneratorMinValuerandomInputOne>
+              <IntegerDataGeneratorMaxValuerandomInputOne>100</IntegerDataGeneratorMaxValuerandomInputOne>
+              <IntegerDataGeneratorStepValuerandomInputOne>1</IntegerDataGeneratorStepValuerandomInputOne>
+              <IntegerDataGeneratorConsequentValuesrandomInputOne>false</IntegerDataGeneratorConsequentValuesrandomInputOne>
+              <GeneratorType1>INT</GeneratorType1>
+              <PropertyName1>randomInputTwo</PropertyName1>
+              <repetitionCountrandomInputTwo>0</repetitionCountrandomInputTwo>
+              <repeatValuesrandomInputTwo>false</repeatValuesrandomInputTwo>
+              <IntegerDataGeneratorMinValuerandomInputTwo>1</IntegerDataGeneratorMinValuerandomInputTwo>
+              <IntegerDataGeneratorMaxValuerandomInputTwo>100</IntegerDataGeneratorMaxValuerandomInputTwo>
+              <IntegerDataGeneratorStepValuerandomInputTwo>1</IntegerDataGeneratorStepValuerandomInputTwo>
+              <IntegerDataGeneratorConsequentValuesrandomInputTwo>false</IntegerDataGeneratorConsequentValuesrandomInputTwo>
+              <escapeSpaceSequence/>
+            </con:configuration>
+          </con:dataSource>
+          <con:shared>true</con:shared>
+          <con:restartShared>true</con:restartShared>
+          <con:property>randomInputOne</con:property>
+          <con:property>randomInputTwo</con:property>
+          <con:completeLastOperation>true</con:completeLastOperation>
+          <con:restartOnRun>true</con:restartOnRun>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="Request 1" id="bcff04d7-83f2-4a2a-9621-85e43e5401fb">
+        <con:settings/>
+        <con:config service="Smartbear Calculator" resourcePath="/subtract" methodName="subtractInput" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Request 1" id="cc518503-9395-48b8-bd2e-0686a78379f3" mediaType="application/json" postQueryString="false">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>https://api.swaggerhub.com</con:endpoint>
+            <con:request/>
+            <con:originalUri>https://api.swaggerhub.com/subtract</con:originalUri>
+            <con:assertion type="JsonPath Existence Match" id="caaf030f-172c-41da-ad59-0b4cc36d6be0" name="Check for existence of [result]">
+              <con:configuration>
+                <path>$['result']</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="JsonPath RegEx Match" id="cc680c81-ce19-4d3b-a75a-bbeee12ebda9" name="Match content of [result] using RegEx">
+              <con:configuration>
+                <path>$['result']</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+                <regEx>^-?\d*\.{0,1}\d+$</regEx>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters>
+              <con:entry key="inputOne" value="${DataSource#randomInputOne}"/>
+              <con:entry key="inputTwo" value="${DataSource#randomInputTwo}"/>
+            </con:parameters>
+            <con:environmentSpec>
+              <con:entry environmentId="0347021d-92b7-47e4-9379-4797d4a703c9">
+                <con:authProfile>Inherit From Parent</con:authProfile>
+              </con:entry>
+              <con:entry environmentId="19ef152b-6806-465d-be73-869bfad44f62">
+                <con:authProfile>Inherit From Parent</con:authProfile>
+              </con:entry>
+            </con:environmentSpec>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="datasourceloop" name="DataSource Loop" id="b26d7063-db08-4768-b86f-546be750c4a0">
+        <con:settings/>
+        <con:config>
+          <dataSourceStep>DataSource</dataSourceStep>
+          <targetStep>Request 1</targetStep>
+          <discardResults>true</discardResults>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+      <con:reportParameters/>
+      <con:breakPoints>
+        <con:testStepId>b26d7063-db08-4768-b86f-546be750c4a0</con:testStepId>
+        <con:status>NONE</con:status>
+        <con:properties/>
+      </con:breakPoints>
+      <con:environmentSpec>
+        <con:entry environmentId="0347021d-92b7-47e4-9379-4797d4a703c9">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="19ef152b-6806-465d-be73-869bfad44f62">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
+    </con:testCase>
+    <con:testCase id="6677521c-e93f-4f9e-ba09-4230ae2d12e5" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="/add_to fail TestCase" searchProperties="true" timeout="0">
+      <con:description>The test case generated for the REST resource [/add] located at [/add]</con:description>
+      <con:settings>
+        <con:setting id="6677521c-e93f-4f9e-ba09-4230ae2d12e5fileName">%2Fadd_to-fail-TestCase</con:setting>
+      </con:settings>
+      <con:savedRecentRuns>1</con:savedRecentRuns>
+      <con:testStep type="datasource" name="DataSource" id="79bd7971-853a-40f7-bab0-06df5dd24ab2">
+        <con:settings/>
+        <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:dataSource type="Data Generator">
+            <con:configuration>
+              <generatedDataCount>10</generatedDataCount>
+              <generatorsTotalNumber>2</generatorsTotalNumber>
+              <lastSelectedProperty>1</lastSelectedProperty>
+              <GeneratorType0>INT</GeneratorType0>
+              <PropertyName0>randomInputOne</PropertyName0>
+              <repetitionCountrandomInputOne>0</repetitionCountrandomInputOne>
+              <repeatValuesrandomInputOne>false</repeatValuesrandomInputOne>
+              <IntegerDataGeneratorMinValuerandomInputOne>1</IntegerDataGeneratorMinValuerandomInputOne>
+              <IntegerDataGeneratorMaxValuerandomInputOne>100</IntegerDataGeneratorMaxValuerandomInputOne>
+              <IntegerDataGeneratorStepValuerandomInputOne>1</IntegerDataGeneratorStepValuerandomInputOne>
+              <IntegerDataGeneratorConsequentValuesrandomInputOne>false</IntegerDataGeneratorConsequentValuesrandomInputOne>
+              <GeneratorType1>CITY</GeneratorType1>
+              <PropertyName1>randomInputTwo</PropertyName1>
+              <repetitionCountrandomInputTwo>0</repetitionCountrandomInputTwo>
+              <repeatValuesrandomInputTwo>false</repeatValuesrandomInputTwo>
+              <escapeSpaceSequence/>
+            </con:configuration>
+          </con:dataSource>
+          <con:shared>true</con:shared>
+          <con:restartShared>true</con:restartShared>
+          <con:property>randomInputOne</con:property>
+          <con:property>randomInputTwo</con:property>
+          <con:completeLastOperation>true</con:completeLastOperation>
+          <con:restartOnRun>true</con:restartOnRun>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="Request 1" id="64d0acf2-684e-4674-b286-5c0832ad12a5">
+        <con:settings/>
+        <con:config service="Smartbear Calculator" resourcePath="/add" methodName="addInput" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Request 1" id="c6bf5c7d-6272-479b-b423-9d6bfb1a653f" mediaType="application/json" postQueryString="false">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>https://api.swaggerhub.com</con:endpoint>
+            <con:request/>
+            <con:originalUri>http://18.237.105.202/add</con:originalUri>
+            <con:assertion type="JsonPath Existence Match" id="748951c0-0bd9-4a0f-9418-ed6714332f1b" name="Check for existence of [result]">
+              <con:configuration>
+                <path>$['result']</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="JsonPath RegEx Match" id="6dcd4541-2fca-417d-b5de-6b5cccdd267f" name="Match content of [result] using RegEx">
+              <con:configuration>
+                <path>$['result']</path>
+                <content>false</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+                <regEx>^[0-9]*$</regEx>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters>
+              <con:entry key="inputOne" value="${DataSource#randomInputOne}"/>
+              <con:entry key="user_key" value=""/>
+              <con:entry key="inputTwo" value="${DataSource#randomInputTwo}"/>
+            </con:parameters>
+            <con:parameterOrder>
+              <con:entry>inputOne</con:entry>
+              <con:entry>inputTwo</con:entry>
+              <con:entry>user_key</con:entry>
+            </con:parameterOrder>
+            <con:environmentSpec>
+              <con:entry environmentId="0347021d-92b7-47e4-9379-4797d4a703c9">
+                <con:authProfile>Inherit From Parent</con:authProfile>
+              </con:entry>
+              <con:entry environmentId="19ef152b-6806-465d-be73-869bfad44f62">
+                <con:authProfile>Inherit From Parent</con:authProfile>
+              </con:entry>
+            </con:environmentSpec>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="datasourceloop" name="DataSource Loop" id="1dd7b28a-eeed-45b6-9d5a-ecf89e56ab21">
+        <con:settings/>
+        <con:config>
+          <dataSourceStep>DataSource</dataSourceStep>
+          <targetStep>Request 1</targetStep>
+          <discardResults>true</discardResults>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+      <con:reportParameters/>
+      <con:breakPoints>
+        <con:testStepId>5b734283-946f-4dda-bccc-c84323e41efd</con:testStepId>
+        <con:status>NONE</con:status>
+        <con:properties/>
+      </con:breakPoints>
+      <con:breakPoints>
+        <con:testStepId>b5fc39ec-b84b-4f75-b849-1985a856ff65</con:testStepId>
+        <con:status>NONE</con:status>
+        <con:properties/>
+      </con:breakPoints>
+      <con:environmentSpec>
+        <con:entry environmentId="0347021d-92b7-47e4-9379-4797d4a703c9">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="19ef152b-6806-465d-be73-869bfad44f62">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
+    </con:testCase>
+    <con:testCase id="19892707-a781-44dd-b01d-23e778772f84" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="/subtract_to fail TestCase" searchProperties="true" timeout="0">
+      <con:description>The test case generated for the REST resource [/add] located at [/add]</con:description>
+      <con:settings>
+        <con:setting id="19892707-a781-44dd-b01d-23e778772f84fileName">%2Fsubtract_to-fail-TestCase</con:setting>
+      </con:settings>
+      <con:savedRecentRuns>1</con:savedRecentRuns>
+      <con:testStep type="datasource" name="DataSource" id="01e8527c-30ae-48f7-9484-63ecc02b8643">
+        <con:settings/>
+        <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:dataSource type="Data Generator">
+            <con:configuration>
+              <generatedDataCount>10</generatedDataCount>
+              <generatorsTotalNumber>2</generatorsTotalNumber>
+              <lastSelectedProperty>1</lastSelectedProperty>
+              <GeneratorType0>INT</GeneratorType0>
+              <PropertyName0>randomInputOne</PropertyName0>
+              <repetitionCountrandomInputOne>0</repetitionCountrandomInputOne>
+              <repeatValuesrandomInputOne>false</repeatValuesrandomInputOne>
+              <IntegerDataGeneratorMinValuerandomInputOne>1</IntegerDataGeneratorMinValuerandomInputOne>
+              <IntegerDataGeneratorMaxValuerandomInputOne>100</IntegerDataGeneratorMaxValuerandomInputOne>
+              <IntegerDataGeneratorStepValuerandomInputOne>1</IntegerDataGeneratorStepValuerandomInputOne>
+              <IntegerDataGeneratorConsequentValuesrandomInputOne>false</IntegerDataGeneratorConsequentValuesrandomInputOne>
+              <GeneratorType1>CITY</GeneratorType1>
+              <PropertyName1>randomInputTwo</PropertyName1>
+              <repetitionCountrandomInputTwo>0</repetitionCountrandomInputTwo>
+              <repeatValuesrandomInputTwo>false</repeatValuesrandomInputTwo>
+              <escapeSpaceSequence/>
+            </con:configuration>
+          </con:dataSource>
+          <con:shared>true</con:shared>
+          <con:restartShared>true</con:restartShared>
+          <con:property>randomInputOne</con:property>
+          <con:property>randomInputTwo</con:property>
+          <con:completeLastOperation>true</con:completeLastOperation>
+          <con:restartOnRun>true</con:restartOnRun>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="Subtract" id="5632771e-65a8-4956-8fee-e670caca9309">
+        <con:settings/>
+        <con:config service="Smartbear Calculator" resourcePath="/subtract" methodName="subtractInput" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Subtract" id="cc518503-9395-48b8-bd2e-0686a78379f3" mediaType="application/json" postQueryString="false">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>https://api.swaggerhub.com</con:endpoint>
+            <con:request/>
+            <con:originalUri>https://api.swaggerhub.com/subtract</con:originalUri>
+            <con:assertion type="JsonPath Existence Match" id="e7d0cf7c-f9b0-494f-a5ef-02d83f788e3d" name="Check for existence of [result]">
+              <con:configuration>
+                <path>$['result']</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="JsonPath RegEx Match" id="8e16d9c0-360c-45a4-b842-893f0286598c" name="Match content of [result] using RegEx">
+              <con:configuration>
+                <path>$['result']</path>
+                <content>false</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+                <regEx>^[0-9]*$</regEx>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters>
+              <con:entry key="inputOne" value="${DataSource#randomInputOne}"/>
+              <con:entry key="inputTwo" value="${DataSource#randomInputTwo}"/>
+            </con:parameters>
+            <con:environmentSpec>
+              <con:entry environmentId="0347021d-92b7-47e4-9379-4797d4a703c9">
+                <con:authProfile>Inherit From Parent</con:authProfile>
+              </con:entry>
+              <con:entry environmentId="19ef152b-6806-465d-be73-869bfad44f62">
+                <con:authProfile>Inherit From Parent</con:authProfile>
+              </con:entry>
+            </con:environmentSpec>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="datasourceloop" name="DataSource Loop" id="2147ca3b-d4d7-4147-827d-493daf96b9ba">
+        <con:settings/>
+        <con:config>
+          <dataSourceStep>DataSource</dataSourceStep>
+          <targetStep>Request 1</targetStep>
+          <discardResults>true</discardResults>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+      <con:reportParameters/>
+      <con:breakPoints>
+        <con:testStepId>5b734283-946f-4dda-bccc-c84323e41efd</con:testStepId>
+        <con:status>NONE</con:status>
+        <con:properties/>
+      </con:breakPoints>
+      <con:breakPoints>
+        <con:testStepId>b5fc39ec-b84b-4f75-b849-1985a856ff65</con:testStepId>
+        <con:status>NONE</con:status>
+        <con:properties/>
+      </con:breakPoints>
+      <con:environmentSpec>
+        <con:entry environmentId="0347021d-92b7-47e4-9379-4797d4a703c9">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="19ef152b-6806-465d-be73-869bfad44f62">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
+    </con:testCase>
+  </con:testSuite>
+  <con:restMockService id="0f7f7fae-f8b1-4f65-a58b-12746746b253" port="8088" path="/" host="localhost" name="martha_service" routeModeEnabled="true" addUnmatchedOperation="false" routeEndpoint="http://34.222.48.79:8050">
+    <con:settings>
+      <con:setting id="0f7f7fae-f8b1-4f65-a58b-12746746b253fileName">martha_service</con:setting>
+    </con:settings>
+    <con:properties/>
+    <con:constraints>
+      <con:congestion>0</con:congestion>
+      <con:inputBandwidth>-1</con:inputBandwidth>
+      <con:outputBandwidth>-1</con:outputBandwidth>
+      <con:maxThreadPoolCapacity>20</con:maxThreadPoolCapacity>
+      <con:coreThreadPoolCapacity>5</con:coreThreadPoolCapacity>
+      <con:virtError>
+        <con:start>0</con:start>
+        <con:endless>true</con:endless>
+      </con:virtError>
+    </con:constraints>
+    <con:headerValidator type="NONE"/>
+    <con:restMockAction name="/divide" method="POST" resourcePath="/divide" id="31bce8c4-9723-4d7e-b8f9-4f0cf11d125c">
+      <con:settings>
+        <con:setting id="31bce8c4-9723-4d7e-b8f9-4f0cf11d125cfileName">%2Fdivide</con:setting>
+      </con:settings>
+      <con:dispatchStyle>SEQUENCE</con:dispatchStyle>
+      <con:dispatchConfig/>
+      <con:dispatchXPath/>
+      <con:routeEnabled>true</con:routeEnabled>
+      <con:conditionalRoutingEnabled>false</con:conditionalRoutingEnabled>
+      <con:routeScript/>
+      <con:response name="Response 1" id="1b0f5810-2382-4afd-b9c3-8d0bc20320fd" httpResponseStatus="200" mediaType="application/json" compressedBodyContent="aced00057372002f636f6d2e657669776172652e736f617075692e696d706c2e737570706f72742e436f6d7072657373656456616c7565000b8b02c748eeab0200025a000a636f6d707265737365645b0004646174617400025b4278700070" dataSource="">
+        <con:settings/>
+        <con:responseContent>{
+	"result": 9991
+}</con:responseContent>
+      </con:response>
+      <con:response name="Response 2" id="497723b4-326e-47d8-a30d-814a2c2ebcba" httpResponseStatus="404" mediaType="application/json" dataSource="">
+        <con:settings/>
+        <con:responseContent/>
+      </con:response>
+    </con:restMockAction>
+    <con:restMockAction name="/multiply" method="POST" resourcePath="/multiply" id="01dc9ebb-1244-4eff-9b94-a4e116b9e846">
+      <con:settings>
+        <con:setting id="01dc9ebb-1244-4eff-9b94-a4e116b9e846fileName">%2Fmultiply</con:setting>
+      </con:settings>
+      <con:defaultResponse>Response 2</con:defaultResponse>
+      <con:dispatchStyle>PARAMETER</con:dispatchStyle>
+      <con:dispatchConfig/>
+      <con:dispatchXPath/>
+      <con:parameterDispatcherRuleContainer>
+        <con:ParameterDispatcherRule>
+          <con:ruleName>Rule 1</con:ruleName>
+          <con:parameterDispatcherCondition>
+            <con:parameterType>QUERY</con:parameterType>
+            <con:parameterOperationType>EXISTS</con:parameterOperationType>
+            <con:parameterName>inputOne</con:parameterName>
+            <con:parameterValue/>
+          </con:parameterDispatcherCondition>
+          <con:parameterDispatcherCondition>
+            <con:parameterType>QUERY</con:parameterType>
+            <con:parameterOperationType>EXISTS</con:parameterOperationType>
+            <con:parameterName>inputTwo</con:parameterName>
+            <con:parameterValue/>
+          </con:parameterDispatcherCondition>
+          <con:responseName>Response 1</con:responseName>
+        </con:ParameterDispatcherRule>
+      </con:parameterDispatcherRuleContainer>
+      <con:routeEnabled>true</con:routeEnabled>
+      <con:conditionalRoutingEnabled>false</con:conditionalRoutingEnabled>
+      <con:routeScript/>
+      <con:response name="Response 1" id="92c66039-39ee-473c-950e-b484b4f556fd" httpResponseStatus="200" mediaType="application/json" compressedBodyContent="aced00057372002f636f6d2e657669776172652e736f617075692e696d706c2e737570706f72742e436f6d7072657373656456616c7565000b8b02c748eeab0200025a000a636f6d707265737365645b0004646174617400025b4278700070" dataSource="">
+        <con:settings/>
+        <con:responseContent>{
+	"result": 9990
+}</con:responseContent>
+      </con:response>
+      <con:response name="Response 2" id="fe9e0f06-eb8d-4a15-a45a-082fcc2d67be" httpResponseStatus="404" mediaType="application/json" dataSource="">
+        <con:settings/>
+        <con:responseContent/>
+      </con:response>
+    </con:restMockAction>
+  </con:restMockService>
+  <con:restMockService id="83be6769-1828-4618-92cc-d826a15d0fd3" port="8088" path="/" host="localhost" name="Smartbear Calculator Virtual Service v1" routeModeEnabled="true" addUnmatchedOperation="false" routeUnmatchedOperation="false" routeEndpoint="http://34.215.16.155:8050">
+    <con:settings>
+      <con:setting id="83be6769-1828-4618-92cc-d826a15d0fd3fileName">Smartbear-Calculator-Virtual-Service-v1</con:setting>
+    </con:settings>
+    <con:properties/>
+    <con:constraints>
+      <con:congestion>0</con:congestion>
+      <con:inputBandwidth>-1</con:inputBandwidth>
+      <con:outputBandwidth>-1</con:outputBandwidth>
+      <con:maxThreadPoolCapacity>20</con:maxThreadPoolCapacity>
+      <con:coreThreadPoolCapacity>5</con:coreThreadPoolCapacity>
+      <con:virtError>
+        <con:start>0</con:start>
+        <con:endless>true</con:endless>
+      </con:virtError>
+    </con:constraints>
+    <con:headerValidator type="NONE"/>
+    <con:restMockAction name="/add" method="POST" resourcePath="/add" id="d36b314d-4925-4372-bb4d-e652782eefd8">
+      <con:settings>
+        <con:setting id="d36b314d-4925-4372-bb4d-e652782eefd8fileName">%2Fadd</con:setting>
+      </con:settings>
+      <con:dispatchStyle>SEQUENCE</con:dispatchStyle>
+      <con:dispatchConfig/>
+      <con:dispatchXPath/>
+      <con:routeEnabled>true</con:routeEnabled>
+      <con:conditionalRoutingEnabled>false</con:conditionalRoutingEnabled>
+      <con:routeScript/>
+      <con:response name="Response 1" id="490426f8-270d-45da-8f7d-d0d3a09793cd" httpResponseStatus="200" mediaType="application/json" compressedBodyContent="aced00057372002f636f6d2e657669776172652e736f617075692e696d706c2e737570706f72742e436f6d7072657373656456616c7565000b8b02c748eeab0200025a000a636f6d707265737365645b0004646174617400025b4278700070" dataSource="">
+        <con:settings/>
+        <con:responseContent>{
+  "result" : 0
+}</con:responseContent>
+      </con:response>
+      <con:response name="Response 2" id="e05a824d-cf95-4eec-a5d3-afea5b647891" httpResponseStatus="404" mediaType="application/json" compressedBodyContent="aced00057372002f636f6d2e657669776172652e736f617075692e696d706c2e737570706f72742e436f6d7072657373656456616c7565000b8b02c748eeab0200025a000a636f6d707265737365645b0004646174617400025b4278700070" dataSource="">
+        <con:settings/>
+        <con:responseContent>{
+  "message" : "string"
+}</con:responseContent>
+      </con:response>
+    </con:restMockAction>
+    <con:restMockAction name="/subtract" method="POST" resourcePath="/subtract" id="e9656d16-d80d-40f1-9c6a-17e0f2b0caf1">
+      <con:settings>
+        <con:setting id="e9656d16-d80d-40f1-9c6a-17e0f2b0caf1fileName">%2Fsubtract</con:setting>
+      </con:settings>
+      <con:dispatchStyle>SEQUENCE</con:dispatchStyle>
+      <con:dispatchConfig/>
+      <con:dispatchXPath/>
+      <con:routeEnabled>true</con:routeEnabled>
+      <con:conditionalRoutingEnabled>false</con:conditionalRoutingEnabled>
+      <con:routeScript/>
+      <con:response name="Response 1" id="9a55a923-d7d5-4787-9bd5-811c154280a6" httpResponseStatus="200" mediaType="application/json" compressedBodyContent="aced00057372002f636f6d2e657669776172652e736f617075692e696d706c2e737570706f72742e436f6d7072657373656456616c7565000b8b02c748eeab0200025a000a636f6d707265737365645b0004646174617400025b4278700070" dataSource="">
+        <con:settings/>
+        <con:responseContent>{
+  "result" : 0
+}</con:responseContent>
+      </con:response>
+      <con:response name="Response 2" id="150da040-9026-4584-8821-4711be2ceaea" httpResponseStatus="404" mediaType="application/json" compressedBodyContent="aced00057372002f636f6d2e657669776172652e736f617075692e696d706c2e737570706f72742e436f6d7072657373656456616c7565000b8b02c748eeab0200025a000a636f6d707265737365645b0004646174617400025b4278700070" dataSource="">
+        <con:settings/>
+        <con:responseContent>{
+  "message" : "string"
+}</con:responseContent>
+      </con:response>
+    </con:restMockAction>
+  </con:restMockService>
+  <con:loadUiTest name="Load Test 1" id="c3815482-1501-44e2-8d0b-be0d9b6cb84c">
+    <con:settings>
+      <con:setting id="soapUIObjectSourceId">c8660cce-7780-467e-b857-51db06f35d30</con:setting>
+      <con:setting id="soapUIObjectSourceType">soapUIObjectSourceType_TestCase</con:setting>
+      <con:setting id="c3815482-1501-44e2-8d0b-be0d9b6cb84cfileName">Load-Test-1</con:setting>
+      <con:setting id="com.eviware.soapui.impl.wsdl.actions.iface.tools.soapui.LoadUITestRunnerAction@values-local"><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  <con:entry key="Test Duration Limit" value=""/>
+  <con:entry key="" value=""/>
+  <con:entry key="Abort Requests" value=""/>
+  <con:entry key="Report Format" value="Default"/>
+  <con:entry key="Local Mode" value="false"/>
+  <con:entry key="Agents" value=""/>
+  <con:entry key="JUnit-Style Results" value="false"/>
+  <con:entry key="Arriving/Base VUs" value=""/>
+  <con:entry key="Statistics" value=""/>
+  <con:entry key="Global Properties" value=""/>
+  <con:entry key="Failure Limit" value=""/>
+  <con:entry key="Project Properties" value=""/>
+  <con:entry key="SelectedStatistics" value=""/>
+  <con:entry key="TestRunner Path" value=""/>
+  <con:entry key="Target Number Limit" value=""/>
+  <con:entry key="Environment" value="Default environment"/>
+  <con:entry key="ExportStatistics" value=""/>
+  <con:entry key="Root Folder" value="C:\Users\nathan.wright\Desktop"/>
+  <con:entry key="Group results" value="false"/>
+  <con:entry key="System Properties" value=""/>
+  <con:entry key="Create Reports" value="true"/>
+  <con:entry key="Save Project" value="false"/>
+  <con:entry key="LoadUITest" value="Load Test 1"/>
+</xml-fragment>]]></con:setting>
+    </con:settings>
+    <con1:loadui-project id="63bcfb9c-685f-4eb2-8fd7-e325f485e29c" label="Load Test 1" xmlns:con1="http://eviware.com/loadui/config">
+      <con1:properties>
+        <con1:property propagates="true" key="ModelItem.description" type="java.lang.String"/>
+        <con1:property propagates="true" key="CanvasItem.abortOnFinish" type="java.lang.Boolean">false</con1:property>
+        <con1:property propagates="true" key="ModelItem.saveReport" type="java.lang.Boolean">false</con1:property>
+        <con1:property propagates="true" key="ModelItem.reportFolder" type="java.lang.String"/>
+        <con1:property propagates="true" key="ModelItem.reportFormat" type="java.lang.String"/>
+        <con1:property propagates="true" key="Temporary project" type="java.lang.String"/>
+        <con1:property propagates="true" key="ModelItem.rate" type="java.lang.Long">10</con1:property>
+        <con1:property propagates="true" key="ModelItem.loadDistributionType" type="com.smartbear.load.facade.LoadDistributionType">PerScenario</con1:property>
+        <con1:property propagates="true" key="ModelItem.remoteMode" type="java.lang.String"/>
+      </con1:properties>
+      <con1:attributes>
+        <con1:property key="limits">Time=30;</con1:property>
+      </con1:attributes>
+      <con1:addons/>
+      <con1:scene label="New Scenario" id="369129d7-8aba-41ee-9fb1-2f59d6232382">
+        <con1:properties>
+          <con1:property propagates="true" key="ModelItem.description" type="java.lang.String"/>
+          <con1:property propagates="true" key="CanvasItem.abortOnFinish" type="java.lang.Boolean">true</con1:property>
+          <con1:property propagates="true" key="SceneItem.followProject" type="java.lang.Boolean">true</con1:property>
+          <con1:property propagates="true" key="SceneItem.scenarioRatePercentage" type="java.lang.Long">100</con1:property>
+          <con1:property propagates="true" key="SceneItem.scenarioRateSpecific" type="java.lang.Long">10</con1:property>
+          <con1:property propagates="true" key="ModelItem.samplerOutputLevel" type="com.eviware.loadui.api.component.SoapUISamplerOutputLevel">TestCaseAndAllTestSteps</con1:property>
+        </con1:properties>
+        <con1:attributes>
+          <con1:property key="limits">Time=30;</con1:property>
+        </con1:attributes>
+        <con1:addons/>
+        <con1:component type="com.eviware.loadui.impl.component.IntervalComponent" label="Interval 1" id="d8263c97-d36b-410a-bbfb-0401c9d3ea21" category="Scheduler">
+          <con1:properties>
+            <con1:property propagates="true" key="ModelItem.description" type="java.lang.String"/>
+            <con1:property propagates="true" key="stateProperty" type="java.lang.Boolean">true</con1:property>
+            <con1:property propagates="true" key="startAt" type="java.lang.Long">0</con1:property>
+            <con1:property propagates="true" key="duration" type="java.lang.Long">5</con1:property>
+            <con1:property propagates="true" key="unit" type="java.lang.String">Sec</con1:property>
+            <con1:property propagates="true" key="mode" type="java.lang.String">Single</con1:property>
+            <con1:property propagates="true" key="defaultMode" type="java.lang.Boolean">true</con1:property>
+          </con1:properties>
+          <con1:attributes>
+            <con1:property key="com.eviware.loadui.api.model.ComponentItem@type">Interval</con1:property>
+          </con1:attributes>
+          <con1:addons/>
+        </con1:component>
+        <con1:component type="com.eviware.loadui.impl.component.generators.FixedVU" label="Fixed Load 1" id="7d22a21c-64ca-4e3c-9483-e92d5b456819" category="Generators">
+          <con1:properties>
+            <con1:property propagates="true" key="ModelItem.description" type="java.lang.String"/>
+            <con1:property propagates="true" key="stateProperty" type="java.lang.Boolean">false</con1:property>
+            <con1:property propagates="true" key="limitVU" type="java.lang.Long">250</con1:property>
+            <con1:property propagates="true" key="load" type="java.lang.Long">5</con1:property>
+            <con1:property propagates="true" key="interval" type="java.lang.Long">1000</con1:property>
+          </con1:properties>
+          <con1:attributes>
+            <con1:property key="com.eviware.loadui.api.model.ComponentItem@type">Fixed Load</con1:property>
+          </con1:attributes>
+          <con1:addons/>
+        </con1:component>
+        <con1:component type="com.eviware.loadui.components.soapui.SoapUISamplerComponent" label="v1 TestSuite:/add TestCase" id="2016409f-9326-4fed-b392-e50415d60953" category="Runners">
+          <con1:properties>
+            <con1:property propagates="true" key="ModelItem.description" type="java.lang.String"/>
+            <con1:property propagates="true" key="concurrentSamples" type="java.lang.Long">1000</con1:property>
+            <con1:property propagates="true" key="property_name_is_not_relevant_for_private_property" type="java.lang.Long">9223372036854775807</con1:property>
+            <con1:property propagates="true" key="maxQueueSize" type="java.lang.Long">1000</con1:property>
+            <con1:property propagates="true" key="countDiscarded" type="java.lang.Boolean">false</con1:property>
+            <con1:property propagates="true" key="disabledTestSteps" type="java.lang.String"/>
+            <con1:property propagates="true" key="_thinkTime" type="java.lang.Long">0</con1:property>
+            <con1:property propagates="true" key="ReadyApiTestCase" type="com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase">c8660cce-7780-467e-b857-51db06f35d30</con1:property>
+            <con1:property propagates="true" key="raiseError" type="java.lang.Boolean">true</con1:property>
+            <con1:property propagates="true" key="outputTestCaseProperties" type="java.lang.Boolean">true</con1:property>
+            <con1:property propagates="true" key="OutputLevel" type="java.lang.String">TestCase only</con1:property>
+            <con1:property propagates="true" key="closeConnectionsAfterRequest" type="java.lang.Boolean">false</con1:property>
+            <con1:property propagates="true" key="disableSoapuiAssertions" type="java.lang.Boolean">false</con1:property>
+            <con1:property propagates="true" key="forceShareDatasources" type="java.lang.Boolean">true</con1:property>
+          </con1:properties>
+          <con1:attributes>
+            <con1:property key="com.eviware.loadui.api.model.ComponentItem@type">Ready API TestCase Runner</con1:property>
+          </con1:attributes>
+          <con1:addons/>
+        </con1:component>
+        <con1:component type="com.eviware.loadui.components.soapui.SoapUISamplerComponent" label="v1 TestSuite:/subtract TestCase" id="f612e3e5-e1c6-484c-aa90-97897d2190dc" category="Runners">
+          <con1:properties>
+            <con1:property propagates="true" key="ModelItem.description" type="java.lang.String"/>
+            <con1:property propagates="true" key="concurrentSamples" type="java.lang.Long">1000</con1:property>
+            <con1:property propagates="true" key="property_name_is_not_relevant_for_private_property" type="java.lang.Long">9223372036854775807</con1:property>
+            <con1:property propagates="true" key="maxQueueSize" type="java.lang.Long">1000</con1:property>
+            <con1:property propagates="true" key="countDiscarded" type="java.lang.Boolean">false</con1:property>
+            <con1:property propagates="true" key="disabledTestSteps" type="java.lang.String"/>
+            <con1:property propagates="true" key="_thinkTime" type="java.lang.Long">0</con1:property>
+            <con1:property propagates="true" key="ReadyApiTestCase" type="com.eviware.soapui.impl.wsdl.testcase.WsdlTestCase">5e635c33-74b2-4226-8a77-75886d453cbf</con1:property>
+            <con1:property propagates="true" key="raiseError" type="java.lang.Boolean">true</con1:property>
+            <con1:property propagates="true" key="outputTestCaseProperties" type="java.lang.Boolean">true</con1:property>
+            <con1:property propagates="true" key="OutputLevel" type="java.lang.String">TestCase only</con1:property>
+            <con1:property propagates="true" key="closeConnectionsAfterRequest" type="java.lang.Boolean">false</con1:property>
+            <con1:property propagates="true" key="disableSoapuiAssertions" type="java.lang.Boolean">false</con1:property>
+            <con1:property propagates="true" key="forceShareDatasources" type="java.lang.Boolean">true</con1:property>
+          </con1:properties>
+          <con1:attributes>
+            <con1:property key="com.eviware.loadui.api.model.ComponentItem@type">Ready API TestCase Runner</con1:property>
+          </con1:attributes>
+          <con1:addons/>
+        </con1:component>
+        <con1:connection outputTerminalId="d8263c97-d36b-410a-bbfb-0401c9d3ea21/outgoingTerminal" inputTerminalId="7d22a21c-64ca-4e3c-9483-e92d5b456819/stateTerminal"/>
+        <con1:connection outputTerminalId="7d22a21c-64ca-4e3c-9483-e92d5b456819/triggerTerminal" inputTerminalId="2016409f-9326-4fed-b392-e50415d60953/triggerTerminal"/>
+        <con1:connection outputTerminalId="2016409f-9326-4fed-b392-e50415d60953/runningTerminal" inputTerminalId="f612e3e5-e1c6-484c-aa90-97897d2190dc/triggerTerminal"/>
+        <con1:connection outputTerminalId="f612e3e5-e1c6-484c-aa90-97897d2190dc/runningTerminal" inputTerminalId="7d22a21c-64ca-4e3c-9483-e92d5b456819/Sample Count"/>
+      </con1:scene>
+      <con1:statistics>
+        <con1:page title="DefaultLoadUIStatisticPage">
+          <con1:chartGroup type="com.eviware.loadui.api.statistics.model.chart.line.LineChartView" title="" groupType="Monitors">
+            <con1:attributes>
+              <con1:property key="GroupId">5e669966-25d3-4928-89b9-f974a219e83e</con1:property>
+            </con1:attributes>
+          </con1:chartGroup>
+        </con1:page>
+      </con1:statistics>
+    </con1:loadui-project>
+    <con:loadUITestScenario projectId="63bcfb9c-685f-4eb2-8fd7-e325f485e29c" scenarioId="369129d7-8aba-41ee-9fb1-2f59d6232382" name="New Scenario" id="7aa114ce-1ea6-46e7-9582-1c3d67ab5d15">
+      <con:settings/>
+    </con:loadUITestScenario>
+    <con:loadUIPanelData id="c14ecde4-5208-4f26-a806-38d6a2e3c0cc">
+      <con:panel>Log</con:panel>
+      <con:data>
+        <con:paramName>column_width@Timestamp</con:paramName>
+        <con:paramValue>84</con:paramValue>
+      </con:data>
+      <con:data>
+        <con:paramName>column_visible@Timestamp</con:paramName>
+        <con:paramValue>true</con:paramValue>
+      </con:data>
+      <con:data>
+        <con:paramName>column_width@ID</con:paramName>
+        <con:paramValue>74</con:paramValue>
+      </con:data>
+      <con:data>
+        <con:paramName>column_visible@ID</con:paramName>
+        <con:paramValue>true</con:paramValue>
+      </con:data>
+      <con:data>
+        <con:paramName>column_width@Test step status</con:paramName>
+        <con:paramValue>120</con:paramValue>
+      </con:data>
+      <con:data>
+        <con:paramName>column_visible@Test step status</con:paramName>
+        <con:paramValue>true</con:paramValue>
+      </con:data>
+      <con:data>
+        <con:paramName>column_width@TriggerTimestamp</con:paramName>
+        <con:paramValue>84</con:paramValue>
+      </con:data>
+      <con:data>
+        <con:paramName>column_visible@TriggerTimestamp</con:paramName>
+        <con:paramValue>true</con:paramValue>
+      </con:data>
+      <con:data>
+        <con:paramName>column_width@TimeTaken</con:paramName>
+        <con:paramValue>115</con:paramValue>
+      </con:data>
+      <con:data>
+        <con:paramName>column_visible@TimeTaken</con:paramName>
+        <con:paramValue>true</con:paramValue>
+      </con:data>
+      <con:data>
+        <con:paramName>column_width@_wait_time_</con:paramName>
+        <con:paramValue>106</con:paramValue>
+      </con:data>
+      <con:data>
+        <con:paramName>column_visible@_wait_time_</con:paramName>
+        <con:paramValue>true</con:paramValue>
+      </con:data>
+      <con:data>
+        <con:paramName>column_width@Bytes</con:paramName>
+        <con:paramValue>52</con:paramValue>
+      </con:data>
+      <con:data>
+        <con:paramName>column_visible@Bytes</con:paramName>
+        <con:paramValue>true</con:paramValue>
+      </con:data>
+      <con:data>
+        <con:paramName>column_width@HTTP Status</con:paramName>
+        <con:paramValue>90</con:paramValue>
+      </con:data>
+      <con:data>
+        <con:paramName>column_visible@HTTP Status</con:paramName>
+        <con:paramValue>true</con:paramValue>
+      </con:data>
+      <con:data>
+        <con:paramName>column_width@CurrentlyRunning</con:paramName>
+        <con:paramValue>75</con:paramValue>
+      </con:data>
+      <con:data>
+        <con:paramName>column_visible@CurrentlyRunning</con:paramName>
+        <con:paramValue>true</con:paramValue>
+      </con:data>
+      <con:data>
+        <con:paramName>column_width@Request</con:paramName>
+        <con:paramValue>67</con:paramValue>
+      </con:data>
+      <con:data>
+        <con:paramName>column_visible@Request</con:paramName>
+        <con:paramValue>false</con:paramValue>
+      </con:data>
+      <con:data>
+        <con:paramName>column_width@Response</con:paramName>
+        <con:paramValue>77</con:paramValue>
+      </con:data>
+      <con:data>
+        <con:paramName>column_visible@Response</con:paramName>
+        <con:paramValue>false</con:paramValue>
+      </con:data>
+    </con:loadUIPanelData>
+    <con:reportParameters/>
+  </con:loadUiTest>
+</con:soapui-project>
